@@ -9,7 +9,7 @@ XCLBIN		?= xclbin/validate_phx.xclbin
 # Host compiler global settings
 INCS		+= -I$(XILINX_XRT)/include
 CXXFLAGS	+= -Wall -O0 -g -std=c++14 -fmessage-length=0
-LDFLAGS		+= -lrt -lstdc++ -lpthread -L$(XILINX_XRT)/lib -lxrt_hwemu -lxrt_coreutil
+LDFLAGS		+= -lrt -lstdc++ -lpthread -L$(XILINX_XRT)/lib -lxrt_coreutil
 
 all: $(APP).exe
 
@@ -18,7 +18,7 @@ $(APP).exe: $(HOST_SRCS)
 	$(CXX) $(CXXFLAGS) $^ $(INCS) $(LDFLAGS) -o $@
 
 run: $(APP).exe
-	./$< $(XCLBIN) $(DEVICE)
+	./$< $(XCLBIN)
 
 .PHONY: clean
 clean:

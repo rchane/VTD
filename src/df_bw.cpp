@@ -24,9 +24,9 @@
 
 constexpr int dpu_instr_str_len = 8;
 constexpr int host_app = 1;
-constexpr int tnx_word_len_gb = 1;
-constexpr int tnx_word_len = tnx_word_len_gb * 1024 * 1024 * 1024;
-constexpr int tnx_word_count = tnx_word_len / 4;
+constexpr int tnx_len_gb = 1;
+constexpr int tnx_len = tnx_len_gb * 1024 * 1024 * 1024;
+constexpr int tnx_word_count = tnx_len / 4;
 
 std::string dpu_instr("src/df_bw_dpu.txt");
 
@@ -109,13 +109,14 @@ run_test_iterations(const std::string &xclbinFileName, xrt::device &device, int 
   size_t instr_size = get_instr_size(dpu_instr);
 
   auto instr = xrt::bo(device, instr_size * sizeof(int), XCL_BO_FLAGS_CACHEABLE, dpu.group_id(5));
-  auto in = xrt::bo(device, tnx_word_len, XRT_BO_FLAGS_HOST_ONLY, dpu.group_id(1));
-  auto out = xrt::bo(device, tnx_word_len, XRT_BO_FLAGS_HOST_ONLY, dpu.group_id(3));
+  auto in = xrt::bo(device, tnx_len, XRT_BO_FLAGS_HOST_ONLY, dpu.group_id(1));
+  auto out = xrt::bo(device, tnx_len, XRT_BO_FLAGS_HOST_ONLY, dpu.group_id(3));
 
   init_instr_buf(instr);
 
   instr.sync(XCL_BO_SYNC_BO_TO_DEVICE);
 
+  std::cout << "Transaction word count: 0x" << std::hex << tnx_word_count << "\n";
   auto in_mapped = in.map<int*>();
   for (int i = 0; i < tnx_word_count; i++)
     in_mapped[i] = rand() % 4096;
@@ -130,6 +131,8 @@ run_test_iterations(const std::string &xclbinFileName, xrt::device &device, int 
   }
   auto end = std::chrono::high_resolution_clock::now();
 
+  std::cout << "Data transfer complete. Checking results...\n";
+
   out.sync(XCL_BO_SYNC_BO_FROM_DEVICE);
 
   auto out_mapped = out.map<int*>();
@@ -141,8 +144,8 @@ run_test_iterations(const std::string &xclbinFileName, xrt::device &device, int 
   }
 
   float elapsedSecs = std::chrono::duration_cast<std::chrono::duration<float>>(end-start).count();
-  float bw = (tnx_word_len_gb * it_max) / (elapsedSecs);
-  std::cout << "Average bandwidth per shim DMA channel: " << bw << " GB/s\n";
+  float bw = (tnx_len_gb * it_max) / (elapsedSecs);
+  std::cout << "Average DF bandwidth per shim DMA: " << bw << " GB/s\n";
 }
 
 void
@@ -152,16 +155,15 @@ run(int argc, char **argv)
 
   // Set the number of threads and iterations
   // Default: 1 thread, 1 iteration
-  if (argc == 3) {
+  if (argc == 2) {
     num_thread = 1;
     it_max = 1;
   } else {
-    throw std::runtime_error("Usage: " + std::string(argv[0]) + " <XCLBIN File> <BDF of IPU device>\n");
+    throw std::runtime_error("Usage: " + std::string(argv[0]) + " <XCLBIN File> ");
   }
 
   std::string xclbinFileName = argv[1];
-  std::string index = argv[2];
-  auto device = xrt::device(index);
+  auto device = xrt::device(0);
 
   std::vector<std::thread> threads;
   for (int i = 0; i < num_thread; i++)

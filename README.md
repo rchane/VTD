@@ -19,5 +19,5 @@ This repository hosts the source files and runtime artifacts required characteri
 ## Run
 
 ```
-make run DEVICE="<BDF-for-IPU>"
+make run
 ```

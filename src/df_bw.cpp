@@ -22,13 +22,13 @@
 #include "xrt/xrt_device.h"
 #include "xrt/xrt_kernel.h"
 
-constexpr int dpu_instr_str_len = 8;
-constexpr int host_app = 1;
-constexpr int tnx_len_gb = 1;
-constexpr int tnx_len = tnx_len_gb * 1024 * 1024 * 1024;
-constexpr int tnx_word_count = tnx_len / 4;
+constexpr unsigned long int dpu_instr_str_len = 8;
+constexpr unsigned long int host_app = 1;
+constexpr unsigned long int tnx_len_gb = 4;
+constexpr unsigned long int tnx_len = tnx_len_gb * 1024 * 1024 * 1024;
+constexpr unsigned long int tnx_word_count = tnx_len / 4;
 
-std::string dpu_instr("src/df_bw_dpu.txt");
+std::string dpu_instr("sequences/common/df_bw.txt");
 
 /* Copy values from text file into buff, expecting values are ASCII encoded
  * 4-Byte hexadecimal values.
@@ -118,8 +118,8 @@ run_test_iterations(const std::string &xclbinFileName, xrt::device &device, int 
 
   std::cout << "Transaction word count: 0x" << std::hex << tnx_word_count << "\n";
   auto in_mapped = in.map<int*>();
-  for (int i = 0; i < tnx_word_count; i++)
-    in_mapped[i] = rand() % 4096;
+  for (unsigned long int i = 0; i < tnx_word_count; i++)
+    in_mapped[i] = rand() % 8192;
 
   in.sync(XCL_BO_SYNC_BO_TO_DEVICE);
 
@@ -136,16 +136,16 @@ run_test_iterations(const std::string &xclbinFileName, xrt::device &device, int 
   out.sync(XCL_BO_SYNC_BO_FROM_DEVICE);
 
   auto out_mapped = out.map<int*>();
-  for (int i = 0; i < tnx_word_count; i++) {
+  for (unsigned long int i = 0; i < tnx_word_count; i++) {
     if (out_mapped[i] == in_mapped[i])
       continue;
 
     std::runtime_error("Error: Output data mismatch!\nTEST FAILED!\n");
   }
 
-  float elapsedSecs = std::chrono::duration_cast<std::chrono::duration<float>>(end-start).count();
-  float bw = (tnx_len_gb * it_max) / (elapsedSecs);
-  std::cout << "Average DF bandwidth per shim DMA: " << bw << " GB/s\n";
+  double elapsedSecs = std::chrono::duration_cast<std::chrono::duration<double>>(end-start).count();
+  double bw = (tnx_len_gb * it_max) / (elapsedSecs);
+  std::cout << "AIE DF bandwidth: " << bw << " GB/s\n";
 }
 
 void

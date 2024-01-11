@@ -4,7 +4,6 @@
 APP			= df_bw
 
 HOST_SRCS	+= src/$(APP).cpp
-XCLBIN		?= xclbin/validate_phx.xclbin
 
 # Host compiler global settings
 INCS		+= -I$(XILINX_XRT)/include

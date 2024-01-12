@@ -1,0 +1,70 @@
+# This is a basic workflow to help you get started with Actions
+
+name: XRT-VTD CI
+
+# Controls when the workflow will run
+on:
+  # Triggers the workflow on push or pull request events but only for the repo-setup branch
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+    inputs:
+      dev:
+        description: 'dev'
+        default: ''
+
+# This allows a subsequently queued workflow run to interrupt previous runs
+concurrency:
+  group: 'mcdm_ci'
+
+env:
+  GIT_BEARER_TOKEN: ${{ secrets.XBUILD_GHE_PAT }}
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  # This workflow contains a single job called "build"
+  
+  sync_ws:
+    # The type of runner that the job will run on
+    runs-on: [ xrt-mcdm, windows ]
+
+    steps:
+      - name: Git Enable long paths
+        run: |
+          git config --global core.longpaths true
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - uses: actions/checkout@v2
+        with:
+          submodules: recursive
+          token: ${{ secrets.XBUILD_GHE_PAT }}
+          fetch-depth: 0
+
+  package_to_publish:
+    runs-on: [ xrt-mcdm, windows ]
+    needs: [ sync_ws ]
+    steps:
+      - name: copy files for packaging
+        run: |          
+          C:\"Program Files"\7-Zip\7z.exe a sequences.zip sequences
+          C:\"Program Files"\7-Zip\7z.exe a xclbin.zip xclbin
+          C:\"Program Files"\7-Zip\7z.exe a xclbin_prod.zip xclbin_prod
+        shell: cmd     
+
+  publish_mcdm_stack:
+    # Publish only for non-PR runs
+    runs-on: [ xrt-mcdm, windows ]
+    needs: [ package_to_publish ]
+    if: github.event_name != 'pull_request'
+    steps:
+      - name: publish artifact to artifactory
+        if: ${{github.event.inputs.dev == '' }}
+        run: |
+          C:\Users\xbuild\jfrog-cli\bin\jfrog-cli.exe rt u --insecure-tls=true --url "https://xcoartifactory/artifactory/"  --password=${{secrets.XBUILD_ARTIFACTORY_TOKEN}} "sequences.zip" xrt-mcdm-prod-local/com/amd/vtd/${{ github.ref_name }}/vtd-run${{ github.run_number }}/
+          C:\Users\xbuild\jfrog-cli\bin\jfrog-cli.exe rt u --insecure-tls=true --url "https://xcoartifactory/artifactory/"  --password=${{secrets.XBUILD_ARTIFACTORY_TOKEN}} "xclbin.zip" xrt-mcdm-prod-local/com/amd/vtd/${{ github.ref_name }}/vtd-run${{ github.run_number }}/
+          C:\Users\xbuild\jfrog-cli\bin\jfrog-cli.exe rt u --insecure-tls=true --url "https://xcoartifactory/artifactory/"  --password=${{secrets.XBUILD_ARTIFACTORY_TOKEN}} "xclbin_prod.zip" xrt-mcdm-prod-local/com/amd/vtd/${{ github.ref_name }}/vtd-run${{ github.run_number }}/
+          C:\Users\xbuild\jfrog-cli\bin\jfrog-cli.exe rt cp --flat --insecure-tls=true --url "https://xcoartifactory/artifactory/" --password=${{secrets.XBUILD_ARTIFACTORY_TOKEN}} --recursive=true xrt-mcdm-prod-local/com/amd/vtd/${{ github.ref_name }}/vtd-run${{ github.run_number }}/* xrt-mcdm-prod-local/com/amd/vtd/${{ github.ref_name }}/latest/
+

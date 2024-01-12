@@ -30,7 +30,7 @@ jobs:
   
   sync_ws:
     # The type of runner that the job will run on
-    runs-on: [ xrt-mcdm, windows ]
+    runs-on: [ vtd ]
 
     steps:
       - name: Git Enable long paths
@@ -44,7 +44,7 @@ jobs:
           fetch-depth: 0
 
   package_to_publish:
-    runs-on: [ xrt-mcdm, windows ]
+    runs-on: [ vtd ]
     needs: [ sync_ws ]
     steps:
       - name: copy files for packaging
@@ -56,7 +56,7 @@ jobs:
 
   publish_mcdm_stack:
     # Publish only for non-PR runs
-    runs-on: [ xrt-mcdm, windows ]
+    runs-on: [ vtd ]
     needs: [ package_to_publish ]
     if: github.event_name != 'pull_request'
     steps:

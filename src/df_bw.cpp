@@ -24,11 +24,11 @@
 
 constexpr unsigned long int dpu_instr_str_len = 8;
 constexpr unsigned long int host_app = 1;
-constexpr unsigned long int tnx_len_gb = 4;
+constexpr unsigned long int tnx_len_gb = 1;
 constexpr unsigned long int tnx_len = tnx_len_gb * 1024 * 1024 * 1024;
 constexpr unsigned long int tnx_word_count = tnx_len / 4;
 
-std::string dpu_instr("sequences/common/df_bw.txt");
+std::string dpu_instr("sequences/df_bw.txt");
 
 /* Copy values from text file into buff, expecting values are ASCII encoded
  * 4-Byte hexadecimal values.
@@ -118,10 +118,13 @@ run_test_iterations(const std::string &xclbinFileName, xrt::device &device, int 
 
   std::cout << "Transaction word count: 0x" << std::hex << tnx_word_count << "\n";
   auto in_mapped = in.map<int*>();
-  for (unsigned long int i = 0; i < tnx_word_count; i++)
+  auto out_mapped = out.map<int*>();
+  for (unsigned long int i = 0; i < tnx_word_count; i++) {
     in_mapped[i] = rand() % 8192;
-
+    out_mapped[i] = 0;
+  }
   in.sync(XCL_BO_SYNC_BO_TO_DEVICE);
+  out.sync(XCL_BO_SYNC_BO_FROM_DEVICE);
 
   // All iterations in the same thread share the same hw context
   auto start = std::chrono::high_resolution_clock::now();
@@ -135,17 +138,20 @@ run_test_iterations(const std::string &xclbinFileName, xrt::device &device, int 
 
   out.sync(XCL_BO_SYNC_BO_FROM_DEVICE);
 
-  auto out_mapped = out.map<int*>();
   for (unsigned long int i = 0; i < tnx_word_count; i++) {
     if (out_mapped[i] == in_mapped[i])
       continue;
 
-    std::runtime_error("Error: Output data mismatch!\nTEST FAILED!\n");
+    std::cout << "In[" << i << "]: " << in_mapped[i] << " | Out[" << i << "]: " << out_mapped[i] << "\n";
+    throw std::runtime_error("Error: Output data mismatch!\nTEST FAILED!\n");
   }
 
-  double elapsedSecs = std::chrono::duration_cast<std::chrono::duration<double>>(end-start).count();
-  double bw = (tnx_len_gb * it_max) / (elapsedSecs);
-  std::cout << "AIE DF bandwidth: " << bw << " GB/s\n";
+  double elapsedSecs = std::chrono::duration_cast<std::chrono::microseconds>(end - start).count();
+  // tnx_len_gb data is read and written in parallel
+  double bw = (tnx_len_gb * it_max * 2 * 1e6) / (elapsedSecs);
+
+  std::cout << "Time taken: " << elapsedSecs << " us\n";
+  std::cout << "AIE DF bandwidth per DMA: " << bw << " GB/s\n";
 }
 
 void

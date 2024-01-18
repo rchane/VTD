@@ -2,13 +2,13 @@
 # Copyright (C) 2023 Advanced Micro Devices, Inc. All rights reserved.
 #
 # DPU script to generate DPU instructions for a AIE shim DMA loopback test.
-# This script loops 4GB of data through 4 columns utilizing 2 input and 2
+# This script loops 1GB of data through 4 columns utilizing 2 input and 2
 # output DMA channels per Shim DMA.
 #
 set_grid -grid 0
 
 # size is in number of words
-set transferSize 0x40000000
+set transferSize 0x10000000
 
 set shim_row 0
 set columns {0 1 2 3}
@@ -29,7 +29,7 @@ foreach col $columns {
 	set channel_idx 0
 	foreach channel $channels {
 		set idx [expr (($column_idx * $channels_per_column) + $channel_idx)]
-		set addr [expr "$len_per_bd * $idx"]
+		set addr [expr "$len_per_bd * $idx * 4"]
 		set addrs [linsert $addrs $idx $addr]
 		incr channel_idx
 	}
@@ -93,11 +93,12 @@ enable_dma -id $in30
 enable_dma -id $out31 -enable_token 1
 enable_dma -id $in31
 
-token_check -dma_id $out00
-token_check -dma_id $out01
-token_check -dma_id $out10
-token_check -dma_id $out11
-token_check -dma_id $out20
-token_check -dma_id $out21
-token_check -dma_id $out30
-token_check -dma_id $out31
+# TCT
+token_check -col [lindex $columns 0] -row $shim_row -tokenValue [expr {1 << 8} | {1 << 16} | {[lindex $channels 0] << 24}]
+token_check -col [lindex $columns 0] -row $shim_row -tokenValue [expr {1 << 8} | {1 << 16} | {[lindex $channels 1] << 24}]
+token_check -col [lindex $columns 1] -row $shim_row -tokenValue [expr {1 << 8} | {1 << 16} | {[lindex $channels 0] << 24}]
+token_check -col [lindex $columns 1] -row $shim_row -tokenValue [expr {1 << 8} | {1 << 16} | {[lindex $channels 1] << 24}]
+token_check -col [lindex $columns 2] -row $shim_row -tokenValue [expr {1 << 8} | {1 << 16} | {[lindex $channels 0] << 24}]
+token_check -col [lindex $columns 2] -row $shim_row -tokenValue [expr {1 << 8} | {1 << 16} | {[lindex $channels 1] << 24}]
+token_check -col [lindex $columns 3] -row $shim_row -tokenValue [expr {1 << 8} | {1 << 16} | {[lindex $channels 0] << 24}]
+token_check -col [lindex $columns 3] -row $shim_row -tokenValue [expr {1 << 8} | {1 << 16} | {[lindex $channels 1] << 24}]

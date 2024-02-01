@@ -28,7 +28,7 @@ constexpr unsigned long int tnx_len_gb = 1;
 constexpr unsigned long int tnx_len = tnx_len_gb * 1024 * 1024 * 1024;
 constexpr unsigned long int tnx_word_count = tnx_len / 4;
 
-std::string dpu_instr("sequences/df_bw.txt");
+std::string dpu_instr("sequences/df_bw_4col.txt");
 
 /* Copy values from text file into buff, expecting values are ASCII encoded
  * 4-Byte hexadecimal values.
@@ -126,10 +126,22 @@ run_test_iterations(const std::string &xclbinFileName, xrt::device &device, int 
   in.sync(XCL_BO_SYNC_BO_TO_DEVICE);
   out.sync(XCL_BO_SYNC_BO_FROM_DEVICE);
 
+  std::cout << "Iteration count: " << std::dec << it_max << "\n" ;
+
+  auto run = xrt::run(dpu);
+  run.set_arg(0, host_app);
+  run.set_arg(1, in);
+  run.set_arg(2, NULL);
+  run.set_arg(3, out);
+  run.set_arg(4, NULL);
+  run.set_arg(5, instr);
+  run.set_arg(6, instr_size);
+  run.set_arg(7, NULL);
+
   // All iterations in the same thread share the same hw context
   auto start = std::chrono::high_resolution_clock::now();
   for (int i = 0; i < it_max; i++) {
-    auto run = dpu(host_app, in, NULL, out, NULL, instr, instr_size, NULL);
+    run.start();
     run.wait2();
   }
   auto end = std::chrono::high_resolution_clock::now();
@@ -151,7 +163,7 @@ run_test_iterations(const std::string &xclbinFileName, xrt::device &device, int 
   double bw = (tnx_len_gb * it_max * 2 * 1e6) / (elapsedSecs);
 
   std::cout << "Time taken: " << elapsedSecs << " us\n";
-  std::cout << "AIE DF bandwidth per DMA: " << bw << " GB/s\n";
+  std::cout << "AIE DF bandwidth: " << bw << " GB/s\n";
 }
 
 void
@@ -163,9 +175,12 @@ run(int argc, char **argv)
   // Default: 1 thread, 1 iteration
   if (argc == 2) {
     num_thread = 1;
-    it_max = 1;
+    it_max = 600;
+  } else if (argc == 3) {
+    num_thread = 1;
+    it_max = atoi(argv[2]);
   } else {
-    throw std::runtime_error("Usage: " + std::string(argv[0]) + " <XCLBIN File> ");
+    throw std::runtime_error("Usage: " + std::string(argv[0]) + " <XCLBIN File> <iterations>");
   }
 
   std::string xclbinFileName = argv[1];

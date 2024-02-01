@@ -17,7 +17,7 @@ $(APP).exe: $(HOST_SRCS)
 	$(CXX) $(CXXFLAGS) $^ $(INCS) $(LDFLAGS) -o $@
 
 run: $(APP).exe
-	./$< $(XCLBIN)
+	./$< $(XCLBIN) $(ITR)
 
 .PHONY: clean
 clean:

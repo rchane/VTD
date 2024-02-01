@@ -19,5 +19,5 @@ This repository hosts the source files and runtime artifacts required characteri
 ## Run
 
 ```
-make run XCLBIN=./xclbin_prod/<device>/validate.xclbin
+make run XCLBIN=./xclbin_prod/<device>/validate.xclbin ITR=<iterations>
 ```

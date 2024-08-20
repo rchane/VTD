@@ -1,3 +1,5 @@
+# SPDX-License-Identifier: Apache-2.0
+# Copyright (C) 2023 Advanced Micro Devices, Inc. All rights reserved.
 cmake_minimum_required(VERSION 3.0)
 cmake_policy(SET CMP0057 NEW)
 

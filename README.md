@@ -1,3 +1,6 @@
+<!---SPDX-License-Identifier: Apache-2.0-->
+<!---Copyright (C) 2023 Advanced Micro Devices, Inc. All rights reserved.-->
+
 # Validation Test Data (VTD)
 
 This repository hosts the runtime artifacts required characterisizing AI-Engine.

@@ -9,6 +9,7 @@ sequences
   |-- tct_1col.txt
   |-- tct_4col.txt
   |-- gemm_int8.txt
+  |-- aie_reconfig_overhead.txt
 
 xclbin_prod
   |-- validate_npu.xclbin #phoenix

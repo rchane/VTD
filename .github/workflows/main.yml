@@ -21,10 +21,10 @@ on:
 
 # This allows a subsequently queued workflow run to interrupt previous runs
 concurrency:
-  group: 'mcdm_ci'
+  group: ${{ github.workflow }}
 
 env:
-  GIT_BEARER_TOKEN: ${{ secrets.XBUILD_GHE_PAT }}
+  GIT_BEARER_TOKEN: ${{ secrets.Z1AIEBUILD_GHE_PAT }}
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
@@ -42,7 +42,6 @@ jobs:
       - uses: actions/checkout@v2
         with:
           submodules: recursive
-          # token: ${{ secrets.XBUILD_GHE_PAT }}
           fetch-depth: 0
 
   package_to_publish:
@@ -64,7 +63,7 @@ jobs:
       - name: publish artifact to artifactory
         if: ${{github.event.inputs.dev == '' }}
         run: |
-          C:\Users\xbuild\jfrog-cli\bin\jfrog-cli.exe rt u --insecure-tls=true --url "https://xcoartifactory/artifactory/"  --password=${{secrets.XBUILD_ARTIFACTORY_TOKEN}} "sequences.zip" xrt-mcdm-prod-local/com/amd/vtd/${{ github.ref_name }}/vtd-run${{ github.run_number }}/
-          C:\Users\xbuild\jfrog-cli\bin\jfrog-cli.exe rt u --insecure-tls=true --url "https://xcoartifactory/artifactory/"  --password=${{secrets.XBUILD_ARTIFACTORY_TOKEN}} "xclbin_prod.zip" xrt-mcdm-prod-local/com/amd/vtd/${{ github.ref_name }}/vtd-run${{ github.run_number }}/
-          C:\Users\xbuild\jfrog-cli\bin\jfrog-cli.exe rt cp --flat --insecure-tls=true --url "https://xcoartifactory/artifactory/" --password=${{secrets.XBUILD_ARTIFACTORY_TOKEN}} --recursive=true xrt-mcdm-prod-local/com/amd/vtd/${{ github.ref_name }}/vtd-run${{ github.run_number }}/* xrt-mcdm-prod-local/com/amd/vtd/${{ github.ref_name }}/latest/
+          C:\Users\z1aiebuild\jfrog-cli\bin\jfrog-cli.exe rt u --insecure-tls=true --url "https://xcoartifactory/artifactory/"  --password=${{secrets.Z1AIEBUILD_ARTIFACTORY_TOKEN}} "sequences.zip" xrt-mcdm-prod-local/com/amd/vtd/${{ github.ref_name }}/vtd-run${{ github.run_number }}/
+          C:\Users\z1aiebuild\jfrog-cli\bin\jfrog-cli.exe rt u --insecure-tls=true --url "https://xcoartifactory/artifactory/"  --password=${{secrets.Z1AIEXBUILD_ARTIFACTORY_TOKEN}} "xclbin_prod.zip" xrt-mcdm-prod-local/com/amd/vtd/${{ github.ref_name }}/vtd-run${{ github.run_number }}/
+          C:\Users\z1aiebuild\jfrog-cli\bin\jfrog-cli.exe rt cp --flat --insecure-tls=true --url "https://xcoartifactory/artifactory/" --password=${{secrets.Z1AIEBUILD_ARTIFACTORY_TOKEN}} --recursive=true xrt-mcdm-prod-local/com/amd/vtd/${{ github.ref_name }}/vtd-run${{ github.run_number }}/* xrt-mcdm-prod-local/com/amd/vtd/${{ github.ref_name }}/latest/
 

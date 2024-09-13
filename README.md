@@ -13,11 +13,13 @@ sequences
   |-- tct_4col.txt
   |-- gemm_int8.txt
   |-- aie_reconfig_overhead.txt
+  |-- nop.elf #npu3 (for elf flow)
 
 xclbin_prod
   |-- validate_npu.xclbin #phoenix
   |-- validate_npu4.xclbin #strixB0 (same xclbin can be used for Strix A0)
   |-- gemm_npu4.xclbin #strixB0
+  |-- validate_npu3.xclbin #npu3
 ```
 Currently, this suite maintains the following host applications,
 - DF bandwidth 

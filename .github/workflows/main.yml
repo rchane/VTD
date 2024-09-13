@@ -63,7 +63,7 @@ jobs:
       - name: publish artifact to artifactory
         if: ${{github.event.inputs.dev == '' }}
         run: |
-          C:\Users\z1aiebuild\jfrog-cli\bin\jfrog-cli.exe rt u --insecure-tls=true --url "https://xcoartifactory/artifactory/"  --password=${{secrets.Z1AIEBUILD_ARTIFACTORY_TOKEN}} "sequences.zip" xrt-mcdm-prod-local/com/amd/vtd/${{ github.ref_name }}/vtd-run${{ github.run_number }}/
-          C:\Users\z1aiebuild\jfrog-cli\bin\jfrog-cli.exe rt u --insecure-tls=true --url "https://xcoartifactory/artifactory/"  --password=${{secrets.Z1AIEBUILD_ARTIFACTORY_TOKEN}} "xclbin_prod.zip" xrt-mcdm-prod-local/com/amd/vtd/${{ github.ref_name }}/vtd-run${{ github.run_number }}/
-          C:\Users\z1aiebuild\jfrog-cli\bin\jfrog-cli.exe rt cp --flat --insecure-tls=true --url "https://xcoartifactory/artifactory/" --password=${{secrets.Z1AIEBUILD_ARTIFACTORY_TOKEN}} --recursive=true xrt-mcdm-prod-local/com/amd/vtd/${{ github.ref_name }}/vtd-run${{ github.run_number }}/* xrt-mcdm-prod-local/com/amd/vtd/${{ github.ref_name }}/latest/
+          C:\Users\z1aiebuild\jfrog-cli\bin\jfrog-cli.exe rt u --insecure-tls=true --url "https://xcoartifactory/artifactory/"  --password=${{secrets.Z1AIEBUILD_ARTIFACTORY_TOKEN}} --user=z1aiebuild "sequences.zip" xrt-mcdm-prod-local/com/amd/vtd/${{ github.ref_name }}/vtd-run${{ github.run_number }}/
+          C:\Users\z1aiebuild\jfrog-cli\bin\jfrog-cli.exe rt u --insecure-tls=true --url "https://xcoartifactory/artifactory/"  --password=${{secrets.Z1AIEBUILD_ARTIFACTORY_TOKEN}} --user=z1aiebuild "xclbin_prod.zip" xrt-mcdm-prod-local/com/amd/vtd/${{ github.ref_name }}/vtd-run${{ github.run_number }}/
+          C:\Users\z1aiebuild\jfrog-cli\bin\jfrog-cli.exe rt cp --flat --insecure-tls=true --url "https://xcoartifactory/artifactory/" --password=${{secrets.Z1AIEBUILD_ARTIFACTORY_TOKEN}} --user=z1aiebuild --recursive=true xrt-mcdm-prod-local/com/amd/vtd/${{ github.ref_name }}/vtd-run${{ github.run_number }}/* xrt-mcdm-prod-local/com/amd/vtd/${{ github.ref_name }}/latest/
 

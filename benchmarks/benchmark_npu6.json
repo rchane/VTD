@@ -1,0 +1,111 @@
+{
+    "device_id" : "17f0_20", 
+    "tests" : [{
+        "test_name" : "latency",
+        "benchmarks" : [
+            {
+                "pmode" : "default",
+                "threshold" : "120"
+            },{
+                "pmode" : "performance",
+                "threshold" : "94"
+            },{
+                "pmode" : "turbo",
+                "threshold" : "92"
+            }
+        ]
+    },{
+        "test_name" : "throughput",
+        "benchmarks" : [
+            {
+                "pmode" : "default",
+                "threshold" : "66800"
+            },{
+                "pmode" : "performance",
+                "threshold" : "68400"
+            },{
+                "pmode" : "turbo",
+                "threshold" : "67400"
+            }
+        ]
+    },{
+        "test_name" : "cmd-chain-latency",
+        "benchmarks" : [
+            {
+                "pmode" : "default",
+                "threshold" : "8.6"
+            },{
+                "pmode" : "performance",
+                "threshold" : "8.6"
+            },{
+                "pmode" : "turbo",
+                "threshold" : "8.5"
+            }
+        ]
+    },{
+        "test_name" : "cmd-chain-throughput",
+        "benchmarks" : [
+            {
+                "pmode" : "default",
+                "threshold" : "116700"
+            },{
+                "pmode" : "performance",
+                "threshold" : "116800"
+            },{
+                "pmode" : "turbo",
+                "threshold" : "117000"
+            }
+        ]
+    },{
+        "test_name" : "df-bw",
+        "benchmarks" : [
+            {
+                "pmode" : "performance",
+                "threshold" : "55"
+            },{
+                "pmode" : "turbo",
+                "threshold" : "55"
+            }
+        ]
+    },{
+        "test_name" : "tct-one-col",
+        "benchmarks" : [{
+                "pmode" : "performance",
+                "threshold" : "492000"
+            },{
+                "pmode" : "turbo",
+                "threshold" : "495000"
+            }
+        ]
+    },{
+        "test_name" : "tct-all-col",
+        "benchmarks" : [{
+                "pmode" : "performance",
+                "threshold" : "983000"
+            },{
+                "pmode" : "turbo",
+                "threshold" : "990000"
+            }
+        ]
+    },{
+        "test_name" : "gemm",
+        "benchmarks" : [{
+                "pmode" : "performance",
+                "threshold" : "50"
+            },{
+                "pmode" : "turbo",
+                "threshold" : "50"
+            }
+        ]
+    },{
+        "test_name" : "aie-reconfig-overhead",
+        "benchmarks" : [{
+                "pmode" : "performance",
+                "threshold" : "3.2"
+            },{
+                "pmode" : "turbo",
+                "threshold" : "3.1"
+            }
+        ]
+    }]
+}

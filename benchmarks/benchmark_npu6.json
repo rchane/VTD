@@ -107,5 +107,15 @@
                 "threshold" : "3.1"
             }
         ]
+    },{
+        "test_name" : "spatial-sharing-overhead",
+        "benchmarks" : [{
+                "pmode" : "performance",
+                "threshold" : "30"
+            },{
+                "pmode" : "turbo",
+                "threshold" : "30"
+            }
+        ]
     }]
 }

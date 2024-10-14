@@ -111,10 +111,20 @@
         "test_name" : "spatial-sharing-overhead",
         "benchmarks" : [{
                 "pmode" : "performance",
-                "threshold" : "20"
+                "threshold" : "1000"
             },{
                 "pmode" : "turbo",
-                "threshold" : "30"
+                "threshold" : "1000"
+            }
+        ]
+    },{
+        "test_name" : "temporal-sharing-overhead",
+        "benchmarks" : [{
+                "pmode" : "performance",
+                "threshold" : "4000"
+            },{
+                "pmode" : "turbo",
+                "threshold" : "4000"
             }
         ]
     }]

@@ -39,7 +39,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        target_branch: [srioguri.copyright]  # To be updated on release branching
+        target_branch: [main]  # To be updated on release branching
 
     steps:
       - name: Checkout repo
@@ -54,7 +54,7 @@ jobs:
         with:
           pr_target_branch: ${{ matrix.target_branch }}
           pr_reviewers: '["sagarw"]'
-          token: ${{ secrets.GHE_Z1AIEBUILD_PAT_WRITE_PRIVATE }}
+          token: ${{ secrets.Z1AIEBUILD_GHE_PAT }}
           copyright_excludes_path: |
             ${{ inputs.copyright_excludes_path || '.github/copyright_updates/COPYRIGHT_EXCLUDES' }}
           languages_path: |

@@ -47,7 +47,7 @@ jobs:
         with:
           fetch-depth: 0
           ref: ${{ matrix.target_branch }}
-          token: ${{ secrets.GHE_Z1AIEBUILD_PAT_WRITE_PRIVATE }}
+          token: ${{ secrets.Z1AIEBUILD_GHE_PAT }}
 
       - name: Run action
         uses: ACAS-DevOps/actions/composite_actions/update_copyright_headers@main

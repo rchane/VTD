@@ -27,7 +27,7 @@ on:
 jobs:
   update_copyright:
     name: Update copyright headers and disclaimers
-    runs-on: [ vtd ]
+    runs-on: [ ubuntu ]
     strategy:
       fail-fast: false
       matrix:

@@ -1,17 +1,9 @@
----
 name: Update copyrights headers and disclaimers
-on:  # yamllint disable-line rule:truthy
-  pull_request:
-    branches:
-      - srioguri.copyright
-    types:
-      - opened
-      - synchronize
+on:
   workflow_dispatch:
     inputs:
       disclaimer_mode:
-        description: Add disclaimers ? Use `config` to decide based on the contents
-          of the COYRIGHT_EXCLUDES file.
+        description: Add disclaimers ? Use `config` to decide based on the contents of the COYRIGHT_EXCLUDES file.
         default: never
         type: choice
         options:

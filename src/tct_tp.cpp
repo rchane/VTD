@@ -1,5 +1,5 @@
 // SPDX-License-Identifier: Apache-2.0
-// Copyright (C) 2023 Advanced Micro Devices, Inc. All rights reserved.
+// Copyright (C) 2025 Advanced Micro Devices, Inc. All rights reserved.
 
 /* This host application measures the average TCT latency and TCT throughput 
  * for single column and all columns tests.

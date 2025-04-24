@@ -1,5 +1,5 @@
 # SPDX-License-Identifier: Apache-2.0
-# Copyright (C) 2024 Advanced Micro Devices, Inc. All rights reserved.
+# Copyright (C) 2025 Advanced Micro Devices, Inc. All rights reserved.
 # OPCODE : OP_WRITE32 COL : 0 ROW : 0
 # ADDRESS TO WRITE : 0x3ff00
 # VALUE TO WRITE :  0x5

@@ -1,3 +1,6 @@
+<!---SPDX-License-Identifier: Apache-2.0-->
+<!---Copyright (C) 2023-2025 Advanced Micro Devices, Inc. All rights reserved.-->
+
 ## Copyright updates script
 This directory contains configuration files used by the ["Update copyrights headers and disclaimers"](../workflows/copyright_updates.yml) workflow.
 - `COPYRIGHT_EXCLUDES` defines "exclusion patterns": Files and directories specified will be excluded from automated copyright updates.

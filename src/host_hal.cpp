@@ -1,5 +1,5 @@
 // SPDX-License-Identifier: Apache-2.0
-// Copyright (C) 2023-2024 Advanced Micro Devices, Inc. All rights reserved.
+// Copyright (C) 2023-2025 Advanced Micro Devices, Inc. All rights reserved.
 
 /* This host application measures the TOPS value of GEMM operations.
  * The DPU sequence reads matrix values from the DDR into the AIE array

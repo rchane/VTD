@@ -1,0 +1,39 @@
+             **********
+             * WHENCE *
+             **********
+
+This file attempts to document the licensing information for each binary
+distributed for use with the XRT plug-in for NPU device.
+
+--------------------------------------------------------------------------
+
+File:
+  input_data/mobilenet/mobilenet_ifm.bin
+  input_data/mobilenet/mobilenet_param.bin
+  sequences/mobilenet_4col.bin
+  xclbin_prod/gemm_elf_npu4.xclbin
+  xclbin_prod/gemm_npu4.xclbin
+  xclbin_prod/mobilenet_elf_npu4_4x4.xclbin
+  xclbin_prod/preemption_4x4_npu4.xclbin
+  xclbin_prod/preemption_4x8_npu4.xclbin
+  xclbin_prod/validate_elf_npu4.xclbin
+  xclbin_prod/validate_npu.xclbin
+  xclbin_prod/validate_npu3.xclbin
+  xclbin_prod/validate_npu4.xclbin
+  xclbin_prod/validate_npu4_elf_4x1.xclbin
+  xclbin_prod/validate_npu4_elf_4x2.xclbin
+  xclbin_prod/validate_npu4_elf_4x4.xclbin
+  elf/aie_reconfig_overhead.elf
+  elf/df_bw.elf
+  elf/gemm_int8.elf
+  elf/mobilenet_4col.elf
+  elf/nop_npu3.elf
+  elf/nop_npu4.elf
+  elf/preemption_memtile_4x4.elf
+  elf/preemption_memtile_4x8.elf
+  elf/preemption_noop_4x4.elf
+  elf/preemption_noop_4x8.elf
+  elf/tct_1col.elf
+  elf/tct_4col.elf
+
+Licence: Redistributable. See LICENSE.vtd for details.

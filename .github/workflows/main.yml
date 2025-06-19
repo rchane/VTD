@@ -48,13 +48,13 @@ jobs:
     if: github.event_name != 'pull_request'
     steps:
       - name: publish sequences artifact to artifactory
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: sequences
           path: | 
             sequences
       - name: publish xclbin_prod artifact to artifactory
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: xclbin_prod
           path: | 

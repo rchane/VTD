@@ -1,0 +1,61 @@
+# SPDX-License-Identifier: Apache-2.0
+# Copyright (C) 2025 Advanced Micro Devices, Inc. All rights reserved.
+# This is a basic workflow to help you get started with Actions
+
+name: Xilinx-VTD CI
+
+# Controls when the workflow will run
+on:
+  # Triggers the workflow on push or pull request events but only for the repo-setup branch
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+    inputs:
+      dev:
+        description: 'dev'
+        default: ''
+
+# This allows a subsequently queued workflow run to interrupt previous runs
+concurrency:
+  group: ${{ github.workflow }}
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  # This workflow contains a single job called "build"
+  
+  sync_ws:
+    # The type of runner that the job will run on
+    runs-on: windows-latest
+
+    steps:
+      - name: Git Enable long paths
+        run: |
+          git config --global core.longpaths true
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - uses: actions/checkout@v3
+        with:
+          submodules: recursive
+          fetch-depth: 0
+
+  #has to be changed to gha
+  publish_mcdm_stack:
+    # Publish only for non-PR runs
+    runs-on: windows-latest
+    if: github.event_name != 'pull_request'
+    steps:
+      - name: publish sequences artifact to artifactory
+        uses: actions/upload-artifact@v3
+        with:
+          name: sequences
+          path: | 
+            sequences
+      - name: publish xclbin_prod artifact to artifactory
+        uses: actions/upload-artifact@v3
+        with:
+          name: xclbin_prod
+          path: | 
+            xclbin_prod

@@ -27,10 +27,10 @@ concurrency:
 jobs:
   # This workflow contains a single job called "build"
   
-  sync_ws:
+  publish_vtd:
     # The type of runner that the job will run on
     runs-on: windows-latest
-
+    if: github.event_name != 'pull_request'
     steps:
       - name: Git Enable long paths
         run: |
@@ -40,21 +40,12 @@ jobs:
         with:
           submodules: recursive
           fetch-depth: 0
-    
-  package_to_publish:
-    runs-on: windows-latest
 
-    steps:
       - name: package files
         run: |
           Compress-Archive -Path sequences -DestinationPath sequences.zip
           Compress-Archive -Path xclbin_prod -DestinationPath xclbin_prod.zip
 
-  publish_mcdm_stack:
-    # Publish only for non-PR runs
-    runs-on: windows-latest
-    if: github.event_name != 'pull_request'
-    steps:
       - name: publish sequences artifact to artifactory
         uses: actions/upload-artifact@v4
         with:

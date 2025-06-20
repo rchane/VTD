@@ -30,7 +30,6 @@ jobs:
   publish_vtd:
     # The type of runner that the job will run on
     runs-on: windows-latest
-    if: github.event_name != 'pull_request'
     steps:
       - name: Git Enable long paths
         run: |

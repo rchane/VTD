@@ -40,8 +40,16 @@ jobs:
         with:
           submodules: recursive
           fetch-depth: 0
+    
+  package_to_publish:
+    runs-on: windows-latest
 
-  #has to be changed to gha
+    steps:
+      - name: package files
+        run: |
+          Compress-Archive -Path sequences -DestinationPath sequences.zip
+          Compress-Archive -Path xclbin_prod -DestinationPath xclbin_prod.zip
+
   publish_mcdm_stack:
     # Publish only for non-PR runs
     runs-on: windows-latest
@@ -51,9 +59,10 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: sequences
-          path: sequences
+          path: sequences.zip
+
       - name: publish xclbin_prod artifact to artifactory
         uses: actions/upload-artifact@v4
         with:
           name: xclbin_prod
-          path: xclbin_prod
+          path: xclbin_prod.zip

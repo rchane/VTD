@@ -51,11 +51,9 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: sequences
-          path: | 
-            sequences
+          path: sequences
       - name: publish xclbin_prod artifact to artifactory
         uses: actions/upload-artifact@v4
         with:
           name: xclbin_prod
-          path: | 
-            xclbin_prod
+          path: xclbin_prod

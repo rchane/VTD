@@ -43,14 +43,7 @@ jobs:
 
       - name: package files
         run: |
-          Compress-Archive -Path sequences -DestinationPath sequences.zip
           Compress-Archive -Path xclbin_prod -DestinationPath xclbin_prod.zip
-
-      - name: publish sequences artifact to artifactory
-        uses: actions/upload-artifact@v4
-        with:
-          name: sequences
-          path: sequences.zip
 
       - name: publish xclbin_prod artifact to artifactory
         uses: actions/upload-artifact@v4

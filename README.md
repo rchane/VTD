@@ -6,11 +6,6 @@
 This repository hosts the runtime artifacts required characterisizing AI-Engine.
 
 ```
-sequences
-  |-- tct_1col.txt
-  |-- tct_4col.txt
-  |-- mobilenet_4col.bin
-
 elf
   |-- nop_npu3.elf
   |-- nop_npu4.elf
@@ -22,8 +17,6 @@ elf
   |-- preemption_memtile_4x2.elf
   |-- preemption_memtile_4x4.elf
   |-- preemption_memtile_4x8.elf
-  |-- tct_1col.elf
-  |-- tct_4col.elf
 
 xclbin_prod
   |-- validate_npu.xclbin #phoenix

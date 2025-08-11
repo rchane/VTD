@@ -23,9 +23,6 @@ File:
   xclbin_prod/validate_npu4_elf_4x1.xclbin
   xclbin_prod/validate_npu4_elf_4x2.xclbin
   xclbin_prod/validate_npu4_elf_4x4.xclbin
-  elf/aie_reconfig_overhead.elf
-  elf/df_bw.elf
-  elf/gemm_int8.elf
   elf/mobilenet_4col.elf
   elf/nop_npu3.elf
   elf/nop_npu4.elf
@@ -33,7 +30,5 @@ File:
   elf/preemption_memtile_4x8.elf
   elf/preemption_noop_4x4.elf
   elf/preemption_noop_4x8.elf
-  elf/tct_1col.elf
-  elf/tct_4col.elf
 
 Licence: Redistributable. See LICENSE.vtd for details.

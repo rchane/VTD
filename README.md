@@ -6,18 +6,7 @@
 This repository hosts the runtime artifacts required characterisizing AI-Engine.
 
 ```
-sequences
-  |-- df_bw_4col.txt
-  |-- tct_1col.txt
-  |-- tct_4col.txt
-  |-- gemm_int8.txt
-  |-- aie_reconfig_overhead.txt
-  |-- mobilenet_4col.bin
-
 elf
-  |-- aie_reconfig_overhead.elf
-  |-- df_bw..elf
-  |-- gemm_int8.elf
   |-- nop_npu3.elf
   |-- nop_npu4.elf
   |-- preemption_noop_4x1.elf
@@ -28,8 +17,6 @@ elf
   |-- preemption_memtile_4x2.elf
   |-- preemption_memtile_4x4.elf
   |-- preemption_memtile_4x8.elf
-  |-- tct_1col.elf
-  |-- tct_4col.elf
 
 xclbin_prod
   |-- validate_npu.xclbin #phoenix

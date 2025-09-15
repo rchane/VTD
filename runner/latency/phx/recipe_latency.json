@@ -1,7 +1,7 @@
 {
   "version": "1.0",
   "header": {
-    "xclbin": "validate_latency_phx.xclbin"
+    "xclbin": "validate.xclbin"
   },
   "resources": {
     "buffers": [

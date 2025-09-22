@@ -1,14 +1,14 @@
 {
   "version": "1.0",
   "header": {
-    "xclbin": "gemm_elf_strx.xclbin"
+    "xclbin": "gemm.xclbin"
   },
   "resources": {
     "buffers": [
       { "name": "bo_result", "type": "debug", "size": 131072 }
     ],
     "kernels": [
-      { "name": "k1", "instance": "DPU", "ctrlcode": "gemm_int8_strx.elf" }
+      { "name": "k1", "instance": "DPU", "ctrlcode": "gemm.elf" }
     ]
   },
   "execution": {

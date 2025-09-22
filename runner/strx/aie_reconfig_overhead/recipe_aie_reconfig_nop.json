@@ -1,7 +1,7 @@
 {
   "version": "1.0",
   "header": {
-    "xclbin": "aie_reconfig_strx.xclbin"
+    "xclbin": "aie_reconfig.xclbin"
   },
   "resources": {
     "buffers": [
@@ -10,7 +10,7 @@
       { "name": "bo_inter", "type": "input", "size": 1048576 }
     ],
     "kernels": [
-      { "name": "k1", "instance": "DPU"}
+      { "name": "k1", "instance": "DPU", "ctrlcode":"nop.elf" }
     ]
   },
   "execution": {

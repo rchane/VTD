@@ -1,15 +1,15 @@
 {
   "version": "1.0",
   "header": {
-    "xclbin": "tct_all_col_strx.xclbin"
+    "xclbin": "tct_one_col.xclbin"
   },
   "resources": {
     "buffers": [
       { "name": "arg0", "type": "input", "size": 4 },
-      { "name": "arg2", "type": "input", "size": 4 }
+      { "name": "arg2", "type": "input", "size": 16 }
     ],
     "kernels": [
-      { "name": "k1", "instance": "DPU" , "ctrlcode": "tct_4col.elf"}
+      { "name": "k1", "instance": "DPU" , "ctrlcode": "tct_1col.elf"}
     ]
   },
   "execution": {

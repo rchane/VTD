@@ -1,15 +1,15 @@
 {
   "version": "1.0",
   "header": {
-    "xclbin": "tct_all_col_phx.xclbin"
+    "xclbin": "tct_one_col.xclbin"
   },
   "resources": {
     "buffers": [
       { "name": "ifm",      "type": "input",  "size": 4 },
-      { "name": "ofm",      "type": "input",  "size": 4 }
+      { "name": "ofm",      "type": "input",  "size": 16 }
     ],
     "kernels": [
-      { "name": "k1", "instance": "DPU_ELF", "ctrlcode": "tct_4col.elf"}
+      { "name": "k1", "instance": "DPU_ELF", "ctrlcode": "tct_1col.elf"}
     ]
   },
   "execution": {

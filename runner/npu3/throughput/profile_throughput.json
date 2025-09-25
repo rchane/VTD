@@ -2,7 +2,7 @@
   "version": "1.0",
 
   "execution" : {
-    "iterations": 10000,
+    "iterations": 1,
     "verbose": false
   }
 }

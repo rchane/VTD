@@ -8,7 +8,8 @@ This directory contains test runners and benchmarks for different NPU platforms:
 runner/
 ├── npu3/           # NPU3 platform tests
 ├── phx/            # Phoenix platform tests
-└── strx/           # Strix platform tests
+├── Strx/           # Strix platform tests
+└── ve2/            # Telluride platform tests
 ```
 
 ## Creating Archives
@@ -26,6 +27,9 @@ Use the `ar` utility to create archives. **Note**: The `ar` utility preserves di
 
 # Archive all STRX subdirectories
 (cd strx && find . -type f -print0 | xargs -0 ar -cr xrt_smi_strx.a)
+
+# Archive all VE2 subdirectories
+(cd ve2 && find . -type f -print0 | xargs -0 ar -cr xrt_smi_ve2.a)
 ```
 
 ## File Types in Archives

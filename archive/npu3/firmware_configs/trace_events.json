@@ -1,0 +1,2676 @@
+{
+  "version": {
+    "product": 1,
+    "schema": 0,
+    "major": 1,
+    "minor": 0
+  },
+  "data_format": null,
+  "categories": [
+    {
+      "name": "EVENT_TRACE_CATEGORY_MAILBOX",
+      "description": "EVENT_TRACE_CATEGORY_MAILBOX",
+      "id": 0,
+      "forced_id": false
+    },
+    {
+      "name": "EVENT_TRACE_CATEGORY_POWER",
+      "description": "EVENT_TRACE_CATEGORY_POWER",
+      "id": 1,
+      "forced_id": false
+    },
+    {
+      "name": "EVENT_TRACE_CATEGORY_HWS",
+      "description": "Hardware scheduler related events.",
+      "id": 2,
+      "forced_id": false
+    },
+    {
+      "name": "EVENT_TRACE_CATEGORY_UC",
+      "description": "uC-related events.",
+      "id": 3,
+      "forced_id": false
+    },
+    {
+      "name": "EVENT_TRACE_CATEGORY_PROCESS",
+      "description": "Process-related events.",
+      "id": 4,
+      "forced_id": false
+    },
+    {
+      "name": "EVENT_TRACE_CATEGORY_CLK_PWR",
+      "description": "Clock/power events.",
+      "id": 5,
+      "forced_id": false
+    },
+    {
+      "name": "EVENT_TRACE_CATEGORY_ERROR",
+      "description": "Error events.",
+      "id": 6,
+      "forced_id": false
+    },
+    {
+      "name": "EVENT_TRACE_CATEGORY_PMFW",
+      "description": "PMFW-related events.",
+      "id": 7,
+      "forced_id": false
+    },
+    {
+      "name": "EVENT_TRACE_CATEGORY_DPM",
+      "description": "DPM-related events.",
+      "id": 8,
+      "forced_id": false
+    },
+    {
+      "name": "EVENT_TRACE_CATEGORY_SRIOV",
+      "description": "EVENT_TRACE_CATEGORY_SRIOV",
+      "id": 9,
+      "forced_id": false
+    }
+  ],
+  "arg_sets": {
+    "no_args": [],
+    "uc_int": [
+      {
+        "name": "context_id",
+        "description": "",
+        "lookup": "",
+        "type": "uint32",
+        "count": 1,
+        "format": ""
+      },
+      {
+        "name": "col",
+        "description": "Column that triggered the interrupt",
+        "lookup": "",
+        "type": "uint8",
+        "count": 1,
+        "format": ""
+      },
+      {
+        "name": "app",
+        "description": "app",
+        "lookup": "",
+        "type": "uint8",
+        "count": 1,
+        "format": ""
+      },
+      {
+        "name": "part_id",
+        "description": "Partition ID",
+        "lookup": "",
+        "type": "uint8",
+        "count": 1,
+        "format": ""
+      }
+    ],
+    "clk_status": [
+      {
+        "name": "clk_status",
+        "description": "0 for clk stopped, 1 for allowed into deep sleep, 2 for active",
+        "lookup": "TODO",
+        "type": "uint32",
+        "count": 1,
+        "format": ""
+      }
+    ],
+    "context_event": [
+      {
+        "name": "context_id",
+        "description": "The context ID associated with the event.",
+        "lookup": "",
+        "type": "uint32",
+        "count": 1,
+        "format": ""
+      }
+    ],
+    "create_partition_message": [
+      {
+        "name": "partition_col_start",
+        "description": "Start column of the partition.",
+        "lookup": "",
+        "type": "uint32",
+        "count": 1,
+        "format": ""
+      },
+      {
+        "name": "partition_col_count",
+        "description": "Number of columns in the partition.",
+        "lookup": "",
+        "type": "uint32",
+        "count": 1,
+        "format": ""
+      }
+    ],
+    "create_vfs_message": [
+      {
+        "name": "vf_cnt",
+        "description": "Number of VFs to create.",
+        "lookup": "",
+        "type": "uint32",
+        "count": 1,
+        "format": ""
+      }
+    ],
+    "doorbell_interrupt": [
+      {
+        "name": "doorbell_id",
+        "description": "Doorbell index",
+        "lookup": "",
+        "type": "uint32",
+        "count": 1,
+        "format": ""
+      }
+    ],
+    "dpm_set_state": [
+      {
+        "name": "ctx_id",
+        "description": "The CTX ID whose state is being set.",
+        "lookup": "",
+        "type": "uint16",
+        "count": 1,
+        "format": ""
+      },
+      {
+        "name": "active",
+        "description": "The new state of the DPM (0 for inactive, 1 for active).",
+        "lookup": "",
+        "type": "uint8",
+        "count": 1,
+        "format": ""
+      },
+      {
+        "name": "reserved",
+        "description": "",
+        "lookup": "",
+        "type": "uint8",
+        "count": 1,
+        "format": ""
+      }
+    ],
+    "echo_message": [
+      {
+        "name": "param0",
+        "description": "Parameter 0 value.",
+        "lookup": "",
+        "type": "uint32",
+        "count": 1,
+        "format": "08x"
+      },
+      {
+        "name": "param1",
+        "description": "Parameter 1 value.",
+        "lookup": "",
+        "type": "uint32",
+        "count": 1,
+        "format": "08x"
+      }
+    ],
+    "mailbox_message_response": [
+      {
+        "name": "response_value",
+        "description": "",
+        "lookup": "",
+        "type": "uint32",
+        "count": 1,
+        "format": ""
+      }
+    ],
+    "npi_interrupt": [
+      {
+        "name": "irq_index",
+        "description": "NPI interrupt index",
+        "lookup": "",
+        "type": "uint32",
+        "count": 1,
+        "format": ""
+      }
+    ],
+    "partition_creation": [
+      {
+        "name": "start_col",
+        "description": "Start column of the partition.",
+        "lookup": "",
+        "type": "uint32",
+        "count": 1,
+        "format": ""
+      },
+      {
+        "name": "num_col",
+        "description": "Number of columns in the partition.",
+        "lookup": "",
+        "type": "uint32",
+        "count": 1,
+        "format": ""
+      },
+      {
+        "name": "num_tile",
+        "description": "Number of tiles in the partition.",
+        "lookup": "",
+        "type": "uint32",
+        "count": 1,
+        "format": ""
+      },
+      {
+        "name": "app_mode",
+        "description": "The application mode, APP_SINGLE, APP_DUAL_A, or APP_DUAL_B.",
+        "lookup": "",
+        "type": "uint32",
+        "count": 1,
+        "format": ""
+      }
+    ],
+    "partition_cleanup": [
+      {
+        "name": "start_col",
+        "description": "Start column of the partition.",
+        "lookup": "",
+        "type": "uint32",
+        "count": 1,
+        "format": ""
+      },
+      {
+        "name": "num_col",
+        "description": "Number of columns in the partition.",
+        "lookup": "",
+        "type": "uint32",
+        "count": 1,
+        "format": ""
+      },
+      {
+        "name": "app_mode",
+        "description": "The application mode, APP_SINGLE, APP_DUAL_A, or APP_DUAL_B.",
+        "lookup": "",
+        "type": "uint32",
+        "count": 1,
+        "format": ""
+      }
+    ],
+    "partition_teardown": [
+      {
+        "name": "partition_id",
+        "description": "ID of the partition being destroyed.",
+        "lookup": "",
+        "type": "uint32",
+        "count": 1,
+        "format": ""
+      }
+    ],
+    "power_status": [
+      {
+        "name": "pwr_status",
+        "description": "1 for power up, 0 for power down",
+        "lookup": "",
+        "type": "uint32",
+        "count": 1,
+        "format": ""
+      }
+    ],
+    "pmfw_col_busy": [
+      {
+        "name": "start_col",
+        "description": "Start column.",
+        "lookup": "",
+        "type": "uint32",
+        "count": 1,
+        "format": ""
+      },
+      {
+        "name": "num_col",
+        "description": "Number of columns.",
+        "lookup": "",
+        "type": "uint32",
+        "count": 1,
+        "format": ""
+      },
+      {
+        "name": "busy",
+        "description": "",
+        "lookup": "",
+        "type": "uint8",
+        "count": 1,
+        "format": ""
+      },
+      {
+        "name": "reserved",
+        "description": "",
+        "lookup": "",
+        "type": "uint8",
+        "count": 3,
+        "format": ""
+      }
+    ],
+    "process_event": [
+      {
+        "name": "pasid",
+        "description": "Process address-space identifier.",
+        "lookup": "",
+        "type": "uint32",
+        "count": 1,
+        "format": "08x"
+      },
+      {
+        "name": "band",
+        "description": "",
+        "lookup": "TODO",
+        "type": "uint8",
+        "count": 1,
+        "format": ""
+      },
+      {
+        "name": "reserved",
+        "description": "",
+        "lookup": "",
+        "type": "uint8",
+        "count": 3,
+        "format": ""
+      }
+    ],
+    "register_async_buffer": [
+      {
+        "name": "buff_addr",
+        "description": "Address of the request buffer.",
+        "lookup": "",
+        "type": "uint64",
+        "count": 1,
+        "format": ""
+      },
+      {
+        "name": "buff_size",
+        "description": "Size of the request buffer.",
+        "lookup": "",
+        "type": "uint32",
+        "count": 1,
+        "format": ""
+      },
+      {
+        "name": "pasid",
+        "description": "Process Address Space ID.",
+        "lookup": "",
+        "type": "uint32",
+        "count": 1,
+        "format": ""
+      },
+      {
+        "name": "pasid_vld",
+        "description": "Indicates if the PASID is valid.",
+        "lookup": "",
+        "type": "uint8",
+        "count": 1,
+        "format": ""
+      },
+      {
+        "name": "reserved",
+        "description": "Reserved for future use.",
+        "lookup": "",
+        "type": "uint8",
+        "count": 3,
+        "format": ""
+      }
+    ],
+    "set_runtime_config_clock_power_override": [
+      {
+        "name": "ipuaie_clk",
+        "description": "IPUAIE clock override (0: disable, 1: enable).",
+        "lookup": "",
+        "type": "uint8",
+        "count": 1,
+        "format": ""
+      },
+      {
+        "name": "ipuh_clk",
+        "description": "IPUH clock override (0: disable, 1: enable).",
+        "lookup": "",
+        "type": "uint8",
+        "count": 1,
+        "format": ""
+      },
+      {
+        "name": "nbif_ds_allow_clk",
+        "description": "NBIF deep sleep clock override (0: disable, 1: enable).",
+        "lookup": "",
+        "type": "uint8",
+        "count": 1,
+        "format": ""
+      },
+      {
+        "name": "axi2sdp_clk",
+        "description": "AXI2SDP clock override (0: disable, 1: enable).",
+        "lookup": "",
+        "type": "uint8",
+        "count": 1,
+        "format": ""
+      },
+      {
+        "name": "common_pwr",
+        "description": "Common power override (0: disable, 1: enable).",
+        "lookup": "",
+        "type": "uint8",
+        "count": 1,
+        "format": ""
+      },
+      {
+        "name": "l1mmu_pwr",
+        "description": "L1MMU power override (0: disable, 1: enable).",
+        "lookup": "",
+        "type": "uint8",
+        "count": 1,
+        "format": ""
+      },
+      {
+        "name": "aie_pwr",
+        "description": "AIE power override (0: disable, 1: enable).",
+        "lookup": "",
+        "type": "uint8",
+        "count": 1,
+        "format": ""
+      },
+      {
+        "name": "reserved",
+        "description": "Reserved for alignment to 4-byte boundary.",
+        "lookup": "",
+        "type": "uint8",
+        "count": 1,
+        "format": ""
+      }
+    ],
+    "set_runtime_config_force_preemption": [
+      {
+        "name": "enabled",
+        "description": "Force preemption enabled (0: disable, 1: enable).",
+        "lookup": "",
+        "type": "uint8",
+        "count": 1,
+        "format": ""
+      },
+      {
+        "name": "reserved",
+        "description": "Reserved for alignment to 4-byte boundary.",
+        "lookup": "",
+        "type": "uint8",
+        "count": 3,
+        "format": ""
+      }
+    ],
+    "sriov_bdf": [
+      {
+        "name": "pf_bus",
+        "description": "PF Bus number.",
+        "lookup": "",
+        "type": "uint16",
+        "count": 1,
+        "format": ""
+      },
+      {
+        "name": "pf_device",
+        "description": "PF Device number.",
+        "lookup": "",
+        "type": "uint16",
+        "count": 1,
+        "format": ""
+      },
+      {
+        "name": "pf_function",
+        "description": "PF Function number.",
+        "lookup": "",
+        "type": "uint16",
+        "count": 1,
+        "format": ""
+      },
+      {
+        "name": "reserved",
+        "description": "",
+        "lookup": "",
+        "type": "uint16",
+        "count": 1,
+        "format": ""
+      }
+    ],
+    "sriov_vf_routing": [
+      {
+        "name": "first_vf_offset",
+        "description": "First VF Offset register value.",
+        "lookup": "",
+        "type": "uint32",
+        "count": 1,
+        "format": ""
+      },
+      {
+        "name": "vf_stride",
+        "description": "VF Stride register value.",
+        "lookup": "",
+        "type": "uint32",
+        "count": 1,
+        "format": ""
+      }
+    ],
+    "unhandled_timer": [
+      {
+        "name": "timer_id",
+        "description": "The ID of the expired timer.",
+        "lookup": "",
+        "type": "uint32",
+        "count": 1,
+        "format": ""
+      }
+    ],
+    "destroy_partition_message": [
+      {
+        "name": "partition_id",
+        "description": "ID of the partition being destroyed.",
+        "lookup": "",
+        "type": "uint32",
+        "count": 1,
+        "format": ""
+      }
+    ],
+    "create_hw_context_message_start": [
+      {
+        "name": "partition_id",
+        "description": "ID of the partition associated with the hardware context.",
+        "lookup": "",
+        "type": "uint32",
+        "count": 1,
+        "format": ""
+      },
+      {
+        "name": "request_num_tiles",
+        "description": "Number of tiles requested for the hardware context.",
+        "lookup": "",
+        "type": "uint32",
+        "count": 1,
+        "format": ""
+      },
+      {
+        "name": "hsa_addr_high",
+        "description": "High 32 bits of the HSA queue address.",
+        "lookup": "",
+        "type": "uint32",
+        "count": 1,
+        "format": ""
+      },
+      {
+        "name": "hsa_addr_low",
+        "description": "Low 32 bits of the HSA queue address.",
+        "lookup": "",
+        "type": "uint32",
+        "count": 1,
+        "format": ""
+      },
+      {
+        "name": "pasid",
+        "description": "Process Address Space ID (PASID).",
+        "lookup": "",
+        "type": "uint32",
+        "count": 1,
+        "format": "08x"
+      },
+      {
+        "name": "priority_band",
+        "description": "Priority band of the hardware context.",
+        "lookup": "",
+        "type": "uint32",
+        "count": 1,
+        "format": ""
+      }
+    ],
+    "create_hw_context_message_done": [
+      {
+        "name": "resp_status",
+        "description": "Status of the command.",
+        "lookup": "",
+        "type": "uint32",
+        "count": 1,
+        "format": ""
+      },
+      {
+        "name": "hw_context_id",
+        "description": "Assigned context ID.",
+        "lookup": "",
+        "type": "uint32",
+        "count": 1,
+        "format": ""
+      },
+      {
+        "name": "doorbell_offset",
+        "description": "Assigned doorbell offset.",
+        "lookup": "",
+        "type": "uint32",
+        "count": 1,
+        "format": ""
+      },
+      {
+        "name": "job_complete_msix_idx",
+        "description": "Assigned job complete MSIX ID.",
+        "lookup": "",
+        "type": "uint32",
+        "count": 1,
+        "format": ""
+      }
+    ],
+    "destroy_hw_context_message": [
+      {
+        "name": "hw_context_id",
+        "description": "ID of the hardware context being destroyed.",
+        "lookup": "",
+        "type": "uint32",
+        "count": 1,
+        "format": ""
+      },
+      {
+        "name": "graceful_flag",
+        "description": "Indicates if the destruction is graceful (1) or immediate (0).",
+        "lookup": "",
+        "type": "uint32",
+        "count": 1,
+        "format": ""
+      }
+    ],
+    "power_override_message": [
+      {
+        "name": "power_mode",
+        "description": "The power override mode requested.",
+        "lookup": "TODO",
+        "type": "uint32",
+        "count": 1,
+        "format": ""
+      }
+    ],
+    "set_clock_mode_message": [
+      {
+        "name": "module",
+        "description": "The module for which the clock mode is being set.",
+        "lookup": "",
+        "type": "uint32",
+        "count": 1,
+        "format": ""
+      },
+      {
+        "name": "mode",
+        "description": "The requested clock mode.",
+        "lookup": "TODO",
+        "type": "uint32",
+        "count": 1,
+        "format": ""
+      }
+    ],
+    "aie_debug_access_reg_message": [
+      {
+        "name": "opcode",
+        "description": "Operation code (read/write).",
+        "lookup": "",
+        "type": "uint32",
+        "count": 1,
+        "format": ""
+      },
+      {
+        "name": "row",
+        "description": "AIE tile row.",
+        "lookup": "",
+        "type": "uint32",
+        "count": 1,
+        "format": ""
+      },
+      {
+        "name": "col",
+        "description": "AIE tile column.",
+        "lookup": "",
+        "type": "uint32",
+        "count": 1,
+        "format": ""
+      },
+      {
+        "name": "reg_addr",
+        "description": "Register address.",
+        "lookup": "",
+        "type": "uint32",
+        "count": 1,
+        "format": ""
+      }
+    ],
+    "aie_debug_access_mem_message": [
+      {
+        "name": "opcode",
+        "description": "Operation code (read/write).",
+        "lookup": "",
+        "type": "uint32",
+        "count": 1,
+        "format": ""
+      },
+      {
+        "name": "row",
+        "description": "AIE tile row.",
+        "lookup": "",
+        "type": "uint32",
+        "count": 1,
+        "format": ""
+      },
+      {
+        "name": "col",
+        "description": "AIE tile column.",
+        "lookup": "",
+        "type": "uint32",
+        "count": 1,
+        "format": ""
+      },
+      {
+        "name": "mem_addr",
+        "description": "Memory address.",
+        "lookup": "",
+        "type": "uint32",
+        "count": 1,
+        "format": ""
+      },
+      {
+        "name": "mem_size",
+        "description": "Memory size in bytes.",
+        "lookup": "",
+        "type": "uint32",
+        "count": 1,
+        "format": ""
+      }
+    ],
+    "ctx_idle": [
+      {
+        "name": "context_id",
+        "description": "The context ID that went idle.",
+        "lookup": "",
+        "type": "uint32",
+        "count": 1,
+        "format": ""
+      },
+      {
+        "name": "has_remaining_work",
+        "description": "1 if context was preempted and has remaining work, 0 if work completed normally.",
+        "lookup": "",
+        "type": "uint8",
+        "count": 1,
+        "format": ""
+      },
+      {
+        "name": "reserved",
+        "description": "",
+        "lookup": "",
+        "type": "uint8",
+        "count": 3,
+        "format": ""
+      }
+    ],
+    "pmfw_can_enter_z8": [
+      {
+        "name": "z8_status",
+        "description": "Indicates MPNPU firmware's z8 status. 1 if it can enter z8, 0 otherwise.",
+        "lookup": "",
+        "type": "uint32",
+        "count": 1,
+        "format": ""
+      }
+    ],
+    "pmfw_get_clk": [
+      {
+        "name": "dpm_level",
+        "description": "DPM level for which to get the frequency.",
+        "lookup": "",
+        "type": "uint32",
+        "count": 1,
+        "format": ""
+      },
+      {
+        "name": "frequency",
+        "description": "Frecuency for the specified DPM level.",
+        "lookup": "",
+        "type": "uint32",
+        "count": 1,
+        "format": ""
+      },
+      {
+        "name": "pmfw_msg_ret_val",
+        "description": "Return value of the send_message transaction.",
+        "lookup": "",
+        "type": "int32",
+        "count": 1,
+        "format": ""
+      }
+    ],
+    "pmfw_msg_fail": [
+      {
+        "name": "msg_id",
+        "description": "The message ID that failed to send.",
+        "lookup": "TODO",
+        "type": "uint32",
+        "count": 1,
+        "format": ""
+      },
+      {
+        "name": "ret_val",
+        "description": "The return value from the failed send attempt.",
+        "lookup": "TODO",
+        "type": "int32",
+        "count": 1,
+        "format": ""
+      }
+    ],
+    "pmfw_set_clk": [
+      {
+        "name": "dpm_level",
+        "description": "DPM level to set.",
+        "lookup": "",
+        "type": "uint32",
+        "count": 1,
+        "format": ""
+      },
+      {
+        "name": "pmfw_msg_ret_val",
+        "description": "Return value of the send_message transaction.",
+        "lookup": "",
+        "type": "int32",
+        "count": 1,
+        "format": ""
+      }
+    ],
+    "ctx_add": [
+      {
+        "name": "context_id",
+        "description": "Hardware context ID",
+        "lookup": "",
+        "type": "uint32",
+        "count": 1,
+        "format": ""
+      },
+      {
+        "name": "pasid",
+        "description": "Process Address Space ID (corrected value)",
+        "lookup": "",
+        "type": "uint32",
+        "count": 1,
+        "format": "08x"
+      },
+      {
+        "name": "priority_band",
+        "description": "Priority band of the context",
+        "lookup": "",
+        "type": "uint32",
+        "count": 1,
+        "format": ""
+      }
+    ]
+  },
+  "events": {
+    "0": {
+      "name": "echo_message_start",
+      "description": "Started processing an Echo message.",
+      "categories": [
+        "EVENT_TRACE_CATEGORY_MAILBOX"
+      ],
+      "args_name": "echo_message",
+      "forced_id": false,
+      "category_mask": 1,
+      "args": [
+        {
+          "name": "param0",
+          "description": "Parameter 0 value.",
+          "lookup": "",
+          "type": "uint32",
+          "count": 1,
+          "format": "08x"
+        },
+        {
+          "name": "param1",
+          "description": "Parameter 1 value.",
+          "lookup": "",
+          "type": "uint32",
+          "count": 1,
+          "format": "08x"
+        }
+      ],
+      "type": "start",
+      "pair": 1
+    },
+    "1": {
+      "name": "echo_message_done",
+      "description": "Finished processing an Echo message.",
+      "categories": [
+        "EVENT_TRACE_CATEGORY_MAILBOX"
+      ],
+      "args_name": "no_args",
+      "forced_id": false,
+      "category_mask": 1,
+      "args": [],
+      "type": "done",
+      "pair": 0
+    },
+    "2": {
+      "name": "create_vfs_message_start",
+      "description": "Started processing create VFs message.",
+      "categories": [
+        "EVENT_TRACE_CATEGORY_MAILBOX"
+      ],
+      "args_name": "create_vfs_message",
+      "forced_id": false,
+      "category_mask": 1,
+      "args": [
+        {
+          "name": "vf_cnt",
+          "description": "Number of VFs to create.",
+          "lookup": "",
+          "type": "uint32",
+          "count": 1,
+          "format": ""
+        }
+      ],
+      "type": "start",
+      "pair": 3
+    },
+    "3": {
+      "name": "create_vfs_message_done",
+      "description": "Finished processing create VFs message.",
+      "categories": [
+        "EVENT_TRACE_CATEGORY_MAILBOX"
+      ],
+      "args_name": "mailbox_message_response",
+      "forced_id": false,
+      "category_mask": 1,
+      "args": [
+        {
+          "name": "response_value",
+          "description": "",
+          "lookup": "",
+          "type": "uint32",
+          "count": 1,
+          "format": ""
+        }
+      ],
+      "type": "done",
+      "pair": 2
+    },
+    "4": {
+      "name": "register_async_buffer_start",
+      "description": "Started processing an async event message.",
+      "categories": [
+        "EVENT_TRACE_CATEGORY_MAILBOX"
+      ],
+      "args_name": "register_async_buffer",
+      "forced_id": false,
+      "category_mask": 1,
+      "args": [
+        {
+          "name": "buff_addr",
+          "description": "Address of the request buffer.",
+          "lookup": "",
+          "type": "uint64",
+          "count": 1,
+          "format": ""
+        },
+        {
+          "name": "buff_size",
+          "description": "Size of the request buffer.",
+          "lookup": "",
+          "type": "uint32",
+          "count": 1,
+          "format": ""
+        },
+        {
+          "name": "pasid",
+          "description": "Process Address Space ID.",
+          "lookup": "",
+          "type": "uint32",
+          "count": 1,
+          "format": ""
+        },
+        {
+          "name": "pasid_vld",
+          "description": "Indicates if the PASID is valid.",
+          "lookup": "",
+          "type": "uint8",
+          "count": 1,
+          "format": ""
+        },
+        {
+          "name": "reserved",
+          "description": "Reserved for future use.",
+          "lookup": "",
+          "type": "uint8",
+          "count": 3,
+          "format": ""
+        }
+      ],
+      "type": "start",
+      "pair": 5
+    },
+    "5": {
+      "name": "register_async_buffer_done",
+      "description": "Finished processing an async event message.",
+      "categories": [
+        "EVENT_TRACE_CATEGORY_MAILBOX"
+      ],
+      "args_name": "mailbox_message_response",
+      "forced_id": false,
+      "category_mask": 1,
+      "args": [
+        {
+          "name": "response_value",
+          "description": "",
+          "lookup": "",
+          "type": "uint32",
+          "count": 1,
+          "format": ""
+        }
+      ],
+      "type": "done",
+      "pair": 4
+    },
+    "6": {
+      "name": "create_partition_message",
+      "description": "Received create_partition message.",
+      "categories": [
+        "EVENT_TRACE_CATEGORY_MAILBOX"
+      ],
+      "args_name": "create_partition_message",
+      "forced_id": false,
+      "category_mask": 1,
+      "args": [
+        {
+          "name": "partition_col_start",
+          "description": "Start column of the partition.",
+          "lookup": "",
+          "type": "uint32",
+          "count": 1,
+          "format": ""
+        },
+        {
+          "name": "partition_col_count",
+          "description": "Number of columns in the partition.",
+          "lookup": "",
+          "type": "uint32",
+          "count": 1,
+          "format": ""
+        }
+      ],
+      "type": null
+    },
+    "7": {
+      "name": "destroy_partition_message",
+      "description": "Received destroy_partition message.",
+      "categories": [
+        "EVENT_TRACE_CATEGORY_MAILBOX"
+      ],
+      "args_name": "destroy_partition_message",
+      "forced_id": false,
+      "category_mask": 1,
+      "args": [
+        {
+          "name": "partition_id",
+          "description": "ID of the partition being destroyed.",
+          "lookup": "",
+          "type": "uint32",
+          "count": 1,
+          "format": ""
+        }
+      ],
+      "type": null
+    },
+    "8": {
+      "name": "create_hw_context_message_start",
+      "description": "Received create_hw_context message.",
+      "categories": [
+        "EVENT_TRACE_CATEGORY_MAILBOX"
+      ],
+      "args_name": "create_hw_context_message_start",
+      "forced_id": false,
+      "category_mask": 1,
+      "args": [
+        {
+          "name": "partition_id",
+          "description": "ID of the partition associated with the hardware context.",
+          "lookup": "",
+          "type": "uint32",
+          "count": 1,
+          "format": ""
+        },
+        {
+          "name": "request_num_tiles",
+          "description": "Number of tiles requested for the hardware context.",
+          "lookup": "",
+          "type": "uint32",
+          "count": 1,
+          "format": ""
+        },
+        {
+          "name": "hsa_addr_high",
+          "description": "High 32 bits of the HSA queue address.",
+          "lookup": "",
+          "type": "uint32",
+          "count": 1,
+          "format": ""
+        },
+        {
+          "name": "hsa_addr_low",
+          "description": "Low 32 bits of the HSA queue address.",
+          "lookup": "",
+          "type": "uint32",
+          "count": 1,
+          "format": ""
+        },
+        {
+          "name": "pasid",
+          "description": "Process Address Space ID (PASID).",
+          "lookup": "",
+          "type": "uint32",
+          "count": 1,
+          "format": "08x"
+        },
+        {
+          "name": "priority_band",
+          "description": "Priority band of the hardware context.",
+          "lookup": "",
+          "type": "uint32",
+          "count": 1,
+          "format": ""
+        }
+      ],
+      "type": "start",
+      "pair": 9
+    },
+    "9": {
+      "name": "create_hw_context_message_done",
+      "description": "Finished creating hw context.",
+      "categories": [
+        "EVENT_TRACE_CATEGORY_MAILBOX"
+      ],
+      "args_name": "create_hw_context_message_done",
+      "forced_id": false,
+      "category_mask": 1,
+      "args": [
+        {
+          "name": "resp_status",
+          "description": "Status of the command.",
+          "lookup": "",
+          "type": "uint32",
+          "count": 1,
+          "format": ""
+        },
+        {
+          "name": "hw_context_id",
+          "description": "Assigned context ID.",
+          "lookup": "",
+          "type": "uint32",
+          "count": 1,
+          "format": ""
+        },
+        {
+          "name": "doorbell_offset",
+          "description": "Assigned doorbell offset.",
+          "lookup": "",
+          "type": "uint32",
+          "count": 1,
+          "format": ""
+        },
+        {
+          "name": "job_complete_msix_idx",
+          "description": "Assigned job complete MSIX ID.",
+          "lookup": "",
+          "type": "uint32",
+          "count": 1,
+          "format": ""
+        }
+      ],
+      "type": "done",
+      "pair": 8
+    },
+    "10": {
+      "name": "destroy_hw_context_message",
+      "description": "Received destroy_hw_context message.",
+      "categories": [
+        "EVENT_TRACE_CATEGORY_MAILBOX"
+      ],
+      "args_name": "destroy_hw_context_message",
+      "forced_id": false,
+      "category_mask": 1,
+      "args": [
+        {
+          "name": "hw_context_id",
+          "description": "ID of the hardware context being destroyed.",
+          "lookup": "",
+          "type": "uint32",
+          "count": 1,
+          "format": ""
+        },
+        {
+          "name": "graceful_flag",
+          "description": "Indicates if the destruction is graceful (1) or immediate (0).",
+          "lookup": "",
+          "type": "uint32",
+          "count": 1,
+          "format": ""
+        }
+      ],
+      "type": null
+    },
+    "11": {
+      "name": "power_override_message_start",
+      "description": "Received power_override message.",
+      "categories": [
+        "EVENT_TRACE_CATEGORY_MAILBOX"
+      ],
+      "args_name": "power_override_message",
+      "forced_id": false,
+      "category_mask": 1,
+      "args": [
+        {
+          "name": "power_mode",
+          "description": "The power override mode requested.",
+          "lookup": "TODO",
+          "type": "uint32",
+          "count": 1,
+          "format": ""
+        }
+      ],
+      "type": "start",
+      "pair": 12
+    },
+    "12": {
+      "name": "power_override_message_done",
+      "description": "Finished processing power override message.",
+      "categories": [
+        "EVENT_TRACE_CATEGORY_MAILBOX"
+      ],
+      "args_name": "no_args",
+      "forced_id": false,
+      "category_mask": 1,
+      "args": [],
+      "type": "done",
+      "pair": 11
+    },
+    "13": {
+      "name": "set_clock_mode_message_start",
+      "description": "Received set_clock_mode message.",
+      "categories": [
+        "EVENT_TRACE_CATEGORY_MAILBOX"
+      ],
+      "args_name": "set_clock_mode_message",
+      "forced_id": false,
+      "category_mask": 1,
+      "args": [
+        {
+          "name": "module",
+          "description": "The module for which the clock mode is being set.",
+          "lookup": "",
+          "type": "uint32",
+          "count": 1,
+          "format": ""
+        },
+        {
+          "name": "mode",
+          "description": "The requested clock mode.",
+          "lookup": "TODO",
+          "type": "uint32",
+          "count": 1,
+          "format": ""
+        }
+      ],
+      "type": "start",
+      "pair": 14
+    },
+    "14": {
+      "name": "set_clock_mode_message_done",
+      "description": "Finished processing set_clock_mode message.",
+      "categories": [
+        "EVENT_TRACE_CATEGORY_MAILBOX"
+      ],
+      "args_name": "no_args",
+      "forced_id": false,
+      "category_mask": 1,
+      "args": [],
+      "type": "done",
+      "pair": 13
+    },
+    "15": {
+      "name": "aie_debug_access_reg_message_start",
+      "description": "AIE debug access register read/write message.",
+      "categories": [
+        "EVENT_TRACE_CATEGORY_MAILBOX"
+      ],
+      "args_name": "aie_debug_access_reg_message",
+      "forced_id": false,
+      "category_mask": 1,
+      "args": [
+        {
+          "name": "opcode",
+          "description": "Operation code (read/write).",
+          "lookup": "",
+          "type": "uint32",
+          "count": 1,
+          "format": ""
+        },
+        {
+          "name": "row",
+          "description": "AIE tile row.",
+          "lookup": "",
+          "type": "uint32",
+          "count": 1,
+          "format": ""
+        },
+        {
+          "name": "col",
+          "description": "AIE tile column.",
+          "lookup": "",
+          "type": "uint32",
+          "count": 1,
+          "format": ""
+        },
+        {
+          "name": "reg_addr",
+          "description": "Register address.",
+          "lookup": "",
+          "type": "uint32",
+          "count": 1,
+          "format": ""
+        }
+      ],
+      "type": "start",
+      "pair": 16
+    },
+    "16": {
+      "name": "aie_debug_access_reg_message_done",
+      "description": "Finished processing aie debug access message.",
+      "categories": [
+        "EVENT_TRACE_CATEGORY_MAILBOX"
+      ],
+      "args_name": "no_args",
+      "forced_id": false,
+      "category_mask": 1,
+      "args": [],
+      "type": "done",
+      "pair": 15
+    },
+    "17": {
+      "name": "aie_debug_access_mem_message_start",
+      "description": "AIE debug access memory read/write message.",
+      "categories": [
+        "EVENT_TRACE_CATEGORY_MAILBOX"
+      ],
+      "args_name": "aie_debug_access_mem_message",
+      "forced_id": false,
+      "category_mask": 1,
+      "args": [
+        {
+          "name": "opcode",
+          "description": "Operation code (read/write).",
+          "lookup": "",
+          "type": "uint32",
+          "count": 1,
+          "format": ""
+        },
+        {
+          "name": "row",
+          "description": "AIE tile row.",
+          "lookup": "",
+          "type": "uint32",
+          "count": 1,
+          "format": ""
+        },
+        {
+          "name": "col",
+          "description": "AIE tile column.",
+          "lookup": "",
+          "type": "uint32",
+          "count": 1,
+          "format": ""
+        },
+        {
+          "name": "mem_addr",
+          "description": "Memory address.",
+          "lookup": "",
+          "type": "uint32",
+          "count": 1,
+          "format": ""
+        },
+        {
+          "name": "mem_size",
+          "description": "Memory size in bytes.",
+          "lookup": "",
+          "type": "uint32",
+          "count": 1,
+          "format": ""
+        }
+      ],
+      "type": "start",
+      "pair": 18
+    },
+    "18": {
+      "name": "aie_debug_access_mem_message_done",
+      "description": "Finished processing aie debug access message.",
+      "categories": [
+        "EVENT_TRACE_CATEGORY_MAILBOX"
+      ],
+      "args_name": "no_args",
+      "forced_id": false,
+      "category_mask": 1,
+      "args": [],
+      "type": "done",
+      "pair": 17
+    },
+    "19": {
+      "name": "set_runtime_config_clock_power_override",
+      "description": "Set runtime configuration for clock and power overrides.",
+      "categories": [
+        "EVENT_TRACE_CATEGORY_MAILBOX",
+        "EVENT_TRACE_CATEGORY_CLK_PWR"
+      ],
+      "args_name": "set_runtime_config_clock_power_override",
+      "forced_id": false,
+      "category_mask": 33,
+      "args": [
+        {
+          "name": "ipuaie_clk",
+          "description": "IPUAIE clock override (0: disable, 1: enable).",
+          "lookup": "",
+          "type": "uint8",
+          "count": 1,
+          "format": ""
+        },
+        {
+          "name": "ipuh_clk",
+          "description": "IPUH clock override (0: disable, 1: enable).",
+          "lookup": "",
+          "type": "uint8",
+          "count": 1,
+          "format": ""
+        },
+        {
+          "name": "nbif_ds_allow_clk",
+          "description": "NBIF deep sleep clock override (0: disable, 1: enable).",
+          "lookup": "",
+          "type": "uint8",
+          "count": 1,
+          "format": ""
+        },
+        {
+          "name": "axi2sdp_clk",
+          "description": "AXI2SDP clock override (0: disable, 1: enable).",
+          "lookup": "",
+          "type": "uint8",
+          "count": 1,
+          "format": ""
+        },
+        {
+          "name": "common_pwr",
+          "description": "Common power override (0: disable, 1: enable).",
+          "lookup": "",
+          "type": "uint8",
+          "count": 1,
+          "format": ""
+        },
+        {
+          "name": "l1mmu_pwr",
+          "description": "L1MMU power override (0: disable, 1: enable).",
+          "lookup": "",
+          "type": "uint8",
+          "count": 1,
+          "format": ""
+        },
+        {
+          "name": "aie_pwr",
+          "description": "AIE power override (0: disable, 1: enable).",
+          "lookup": "",
+          "type": "uint8",
+          "count": 1,
+          "format": ""
+        },
+        {
+          "name": "reserved",
+          "description": "Reserved for alignment to 4-byte boundary.",
+          "lookup": "",
+          "type": "uint8",
+          "count": 1,
+          "format": ""
+        }
+      ],
+      "type": null
+    },
+    "20": {
+      "name": "set_runtime_config_force_preemption",
+      "description": "Set runtime configuration for force preemption.",
+      "categories": [
+        "EVENT_TRACE_CATEGORY_MAILBOX",
+        "EVENT_TRACE_CATEGORY_HWS"
+      ],
+      "args_name": "set_runtime_config_force_preemption",
+      "forced_id": false,
+      "category_mask": 5,
+      "args": [
+        {
+          "name": "enabled",
+          "description": "Force preemption enabled (0: disable, 1: enable).",
+          "lookup": "",
+          "type": "uint8",
+          "count": 1,
+          "format": ""
+        },
+        {
+          "name": "reserved",
+          "description": "Reserved for alignment to 4-byte boundary.",
+          "lookup": "",
+          "type": "uint8",
+          "count": 3,
+          "format": ""
+        }
+      ],
+      "type": null
+    },
+    "21": {
+      "name": "set_runtime_config_done",
+      "description": "Finished applying runtime configuration changes.",
+      "categories": [
+        "EVENT_TRACE_CATEGORY_MAILBOX"
+      ],
+      "args_name": "no_args",
+      "forced_id": false,
+      "category_mask": 1,
+      "args": [],
+      "type": "done"
+    },
+    "22": {
+      "name": "uc_job_complete",
+      "description": "uC job completed successfully.",
+      "categories": [
+        "EVENT_TRACE_CATEGORY_HWS",
+        "EVENT_TRACE_CATEGORY_UC"
+      ],
+      "args_name": "uc_int",
+      "forced_id": false,
+      "category_mask": 12,
+      "args": [
+        {
+          "name": "context_id",
+          "description": "",
+          "lookup": "",
+          "type": "uint32",
+          "count": 1,
+          "format": ""
+        },
+        {
+          "name": "col",
+          "description": "Column that triggered the interrupt",
+          "lookup": "",
+          "type": "uint8",
+          "count": 1,
+          "format": ""
+        },
+        {
+          "name": "app",
+          "description": "app",
+          "lookup": "",
+          "type": "uint8",
+          "count": 1,
+          "format": ""
+        },
+        {
+          "name": "part_id",
+          "description": "Partition ID",
+          "lookup": "",
+          "type": "uint8",
+          "count": 1,
+          "format": ""
+        }
+      ],
+      "type": null
+    },
+    "23": {
+      "name": "uc_idle",
+      "description": "Got idle message from uc.",
+      "categories": [
+        "EVENT_TRACE_CATEGORY_HWS",
+        "EVENT_TRACE_CATEGORY_UC"
+      ],
+      "args_name": "uc_int",
+      "forced_id": false,
+      "category_mask": 12,
+      "args": [
+        {
+          "name": "context_id",
+          "description": "",
+          "lookup": "",
+          "type": "uint32",
+          "count": 1,
+          "format": ""
+        },
+        {
+          "name": "col",
+          "description": "Column that triggered the interrupt",
+          "lookup": "",
+          "type": "uint8",
+          "count": 1,
+          "format": ""
+        },
+        {
+          "name": "app",
+          "description": "app",
+          "lookup": "",
+          "type": "uint8",
+          "count": 1,
+          "format": ""
+        },
+        {
+          "name": "part_id",
+          "description": "Partition ID",
+          "lookup": "",
+          "type": "uint8",
+          "count": 1,
+          "format": ""
+        }
+      ],
+      "type": null
+    },
+    "24": {
+      "name": "context_start_running",
+      "description": "Context was selected to run.",
+      "categories": [
+        "EVENT_TRACE_CATEGORY_HWS"
+      ],
+      "args_name": "context_event",
+      "forced_id": false,
+      "category_mask": 4,
+      "args": [
+        {
+          "name": "context_id",
+          "description": "The context ID associated with the event.",
+          "lookup": "",
+          "type": "uint32",
+          "count": 1,
+          "format": ""
+        }
+      ],
+      "type": null
+    },
+    "25": {
+      "name": "context_deleted",
+      "description": "Context deleted event.",
+      "categories": [
+        "EVENT_TRACE_CATEGORY_HWS"
+      ],
+      "args_name": "context_event",
+      "forced_id": false,
+      "category_mask": 4,
+      "args": [
+        {
+          "name": "context_id",
+          "description": "The context ID associated with the event.",
+          "lookup": "",
+          "type": "uint32",
+          "count": 1,
+          "format": ""
+        }
+      ],
+      "type": null
+    },
+    "26": {
+      "name": "doorbell_interrupt",
+      "description": "Doorbell interrupt triggered.",
+      "categories": [
+        "EVENT_TRACE_CATEGORY_HWS"
+      ],
+      "args_name": "doorbell_interrupt",
+      "forced_id": false,
+      "category_mask": 4,
+      "args": [
+        {
+          "name": "doorbell_id",
+          "description": "Doorbell index",
+          "lookup": "",
+          "type": "uint32",
+          "count": 1,
+          "format": ""
+        }
+      ],
+      "type": null
+    },
+    "27": {
+      "name": "partition_creation",
+      "description": "Partition creation event.",
+      "categories": [
+        "EVENT_TRACE_CATEGORY_HWS"
+      ],
+      "args_name": "partition_creation",
+      "forced_id": false,
+      "category_mask": 4,
+      "args": [
+        {
+          "name": "start_col",
+          "description": "Start column of the partition.",
+          "lookup": "",
+          "type": "uint32",
+          "count": 1,
+          "format": ""
+        },
+        {
+          "name": "num_col",
+          "description": "Number of columns in the partition.",
+          "lookup": "",
+          "type": "uint32",
+          "count": 1,
+          "format": ""
+        },
+        {
+          "name": "num_tile",
+          "description": "Number of tiles in the partition.",
+          "lookup": "",
+          "type": "uint32",
+          "count": 1,
+          "format": ""
+        },
+        {
+          "name": "app_mode",
+          "description": "The application mode, APP_SINGLE, APP_DUAL_A, or APP_DUAL_B.",
+          "lookup": "",
+          "type": "uint32",
+          "count": 1,
+          "format": ""
+        }
+      ],
+      "type": null
+    },
+    "28": {
+      "name": "partition_clear_context",
+      "description": "Partition clear context event.",
+      "categories": [
+        "EVENT_TRACE_CATEGORY_HWS"
+      ],
+      "args_name": "partition_cleanup",
+      "forced_id": false,
+      "category_mask": 4,
+      "args": [
+        {
+          "name": "start_col",
+          "description": "Start column of the partition.",
+          "lookup": "",
+          "type": "uint32",
+          "count": 1,
+          "format": ""
+        },
+        {
+          "name": "num_col",
+          "description": "Number of columns in the partition.",
+          "lookup": "",
+          "type": "uint32",
+          "count": 1,
+          "format": ""
+        },
+        {
+          "name": "app_mode",
+          "description": "The application mode, APP_SINGLE, APP_DUAL_A, or APP_DUAL_B.",
+          "lookup": "",
+          "type": "uint32",
+          "count": 1,
+          "format": ""
+        }
+      ],
+      "type": null
+    },
+    "29": {
+      "name": "partition_teardown",
+      "description": "Partition teardown event.",
+      "categories": [
+        "EVENT_TRACE_CATEGORY_HWS"
+      ],
+      "args_name": "partition_cleanup",
+      "forced_id": false,
+      "category_mask": 4,
+      "args": [
+        {
+          "name": "start_col",
+          "description": "Start column of the partition.",
+          "lookup": "",
+          "type": "uint32",
+          "count": 1,
+          "format": ""
+        },
+        {
+          "name": "num_col",
+          "description": "Number of columns in the partition.",
+          "lookup": "",
+          "type": "uint32",
+          "count": 1,
+          "format": ""
+        },
+        {
+          "name": "app_mode",
+          "description": "The application mode, APP_SINGLE, APP_DUAL_A, or APP_DUAL_B.",
+          "lookup": "",
+          "type": "uint32",
+          "count": 1,
+          "format": ""
+        }
+      ],
+      "type": null
+    },
+    "30": {
+      "name": "preempt_timeout_expired",
+      "description": "Preemption timer for context expired",
+      "categories": [
+        "EVENT_TRACE_CATEGORY_HWS"
+      ],
+      "args_name": "context_event",
+      "forced_id": false,
+      "category_mask": 4,
+      "args": [
+        {
+          "name": "context_id",
+          "description": "The context ID associated with the event.",
+          "lookup": "",
+          "type": "uint32",
+          "count": 1,
+          "format": ""
+        }
+      ],
+      "type": null
+    },
+    "31": {
+      "name": "process_idle_to_runnable",
+      "description": "Process transitioned from idle to runnable state.",
+      "categories": [
+        "EVENT_TRACE_CATEGORY_HWS",
+        "EVENT_TRACE_CATEGORY_PROCESS"
+      ],
+      "args_name": "process_event",
+      "forced_id": false,
+      "category_mask": 20,
+      "args": [
+        {
+          "name": "pasid",
+          "description": "Process address-space identifier.",
+          "lookup": "",
+          "type": "uint32",
+          "count": 1,
+          "format": "08x"
+        },
+        {
+          "name": "band",
+          "description": "",
+          "lookup": "TODO",
+          "type": "uint8",
+          "count": 1,
+          "format": ""
+        },
+        {
+          "name": "reserved",
+          "description": "",
+          "lookup": "",
+          "type": "uint8",
+          "count": 3,
+          "format": ""
+        }
+      ],
+      "type": null
+    },
+    "32": {
+      "name": "process_runnable_to_idle",
+      "description": "Process transitioned from runnable to idle state.",
+      "categories": [
+        "EVENT_TRACE_CATEGORY_HWS",
+        "EVENT_TRACE_CATEGORY_PROCESS"
+      ],
+      "args_name": "process_event",
+      "forced_id": false,
+      "category_mask": 20,
+      "args": [
+        {
+          "name": "pasid",
+          "description": "Process address-space identifier.",
+          "lookup": "",
+          "type": "uint32",
+          "count": 1,
+          "format": "08x"
+        },
+        {
+          "name": "band",
+          "description": "",
+          "lookup": "TODO",
+          "type": "uint8",
+          "count": 1,
+          "format": ""
+        },
+        {
+          "name": "reserved",
+          "description": "",
+          "lookup": "",
+          "type": "uint8",
+          "count": 3,
+          "format": ""
+        }
+      ],
+      "type": null
+    },
+    "33": {
+      "name": "request_preemption",
+      "description": "Preemption was requested for context",
+      "categories": [
+        "EVENT_TRACE_CATEGORY_HWS"
+      ],
+      "args_name": "context_event",
+      "forced_id": false,
+      "category_mask": 4,
+      "args": [
+        {
+          "name": "context_id",
+          "description": "The context ID associated with the event.",
+          "lookup": "",
+          "type": "uint32",
+          "count": 1,
+          "format": ""
+        }
+      ],
+      "type": null
+    },
+    "34": {
+      "name": "time_quantum_ctx_expired",
+      "description": "TQ timer for context expired",
+      "categories": [
+        "EVENT_TRACE_CATEGORY_HWS"
+      ],
+      "args_name": "context_event",
+      "forced_id": false,
+      "category_mask": 4,
+      "args": [
+        {
+          "name": "context_id",
+          "description": "The context ID associated with the event.",
+          "lookup": "",
+          "type": "uint32",
+          "count": 1,
+          "format": ""
+        }
+      ],
+      "type": null
+    },
+    "35": {
+      "name": "time_quantum_process_expired",
+      "description": "TQ timer for process expired",
+      "categories": [
+        "EVENT_TRACE_CATEGORY_HWS",
+        "EVENT_TRACE_CATEGORY_PROCESS"
+      ],
+      "args_name": "process_event",
+      "forced_id": false,
+      "category_mask": 20,
+      "args": [
+        {
+          "name": "pasid",
+          "description": "Process address-space identifier.",
+          "lookup": "",
+          "type": "uint32",
+          "count": 1,
+          "format": "08x"
+        },
+        {
+          "name": "band",
+          "description": "",
+          "lookup": "TODO",
+          "type": "uint8",
+          "count": 1,
+          "format": ""
+        },
+        {
+          "name": "reserved",
+          "description": "",
+          "lookup": "",
+          "type": "uint8",
+          "count": 3,
+          "format": ""
+        }
+      ],
+      "type": null
+    },
+    "36": {
+      "name": "unhandled_timer",
+      "description": "Unknown timer expired",
+      "categories": [
+        "EVENT_TRACE_CATEGORY_HWS",
+        "EVENT_TRACE_CATEGORY_ERROR"
+      ],
+      "args_name": "unhandled_timer",
+      "forced_id": false,
+      "category_mask": 68,
+      "args": [
+        {
+          "name": "timer_id",
+          "description": "The ID of the expired timer.",
+          "lookup": "",
+          "type": "uint32",
+          "count": 1,
+          "format": ""
+        }
+      ],
+      "type": null
+    },
+    "37": {
+      "name": "ctx_idle",
+      "description": "Context went idle - indicates if preempted or work completed",
+      "categories": [
+        "EVENT_TRACE_CATEGORY_HWS"
+      ],
+      "args_name": "ctx_idle",
+      "forced_id": false,
+      "category_mask": 4,
+      "args": [
+        {
+          "name": "context_id",
+          "description": "The context ID that went idle.",
+          "lookup": "",
+          "type": "uint32",
+          "count": 1,
+          "format": ""
+        },
+        {
+          "name": "has_remaining_work",
+          "description": "1 if context was preempted and has remaining work, 0 if work completed normally.",
+          "lookup": "",
+          "type": "uint8",
+          "count": 1,
+          "format": ""
+        },
+        {
+          "name": "reserved",
+          "description": "",
+          "lookup": "",
+          "type": "uint8",
+          "count": 3,
+          "format": ""
+        }
+      ],
+      "type": null
+    },
+    "38": {
+      "name": "ctx_add",
+      "description": "Context added with correct PASID correlation",
+      "categories": [
+        "EVENT_TRACE_CATEGORY_HWS"
+      ],
+      "args_name": "ctx_add",
+      "forced_id": false,
+      "category_mask": 4,
+      "args": [
+        {
+          "name": "context_id",
+          "description": "Hardware context ID",
+          "lookup": "",
+          "type": "uint32",
+          "count": 1,
+          "format": ""
+        },
+        {
+          "name": "pasid",
+          "description": "Process Address Space ID (corrected value)",
+          "lookup": "",
+          "type": "uint32",
+          "count": 1,
+          "format": "08x"
+        },
+        {
+          "name": "priority_band",
+          "description": "Priority band of the context",
+          "lookup": "",
+          "type": "uint32",
+          "count": 1,
+          "format": ""
+        }
+      ],
+      "type": null
+    },
+    "39": {
+      "name": "aie4_pwr",
+      "description": "AIE4 power-up event.",
+      "categories": [
+        "EVENT_TRACE_CATEGORY_CLK_PWR"
+      ],
+      "args_name": "power_status",
+      "forced_id": false,
+      "category_mask": 32,
+      "args": [
+        {
+          "name": "pwr_status",
+          "description": "1 for power up, 0 for power down",
+          "lookup": "",
+          "type": "uint32",
+          "count": 1,
+          "format": ""
+        }
+      ],
+      "type": null
+    },
+    "40": {
+      "name": "common_ono_pwr",
+      "description": "ONO power-up event.",
+      "categories": [
+        "EVENT_TRACE_CATEGORY_CLK_PWR"
+      ],
+      "args_name": "power_status",
+      "forced_id": false,
+      "category_mask": 32,
+      "args": [
+        {
+          "name": "pwr_status",
+          "description": "1 for power up, 0 for power down",
+          "lookup": "",
+          "type": "uint32",
+          "count": 1,
+          "format": ""
+        }
+      ],
+      "type": null
+    },
+    "41": {
+      "name": "ipu_aieclk_status",
+      "description": "IPU AIE changed to active, stop, or it is allowed to go into deep sleep.",
+      "categories": [
+        "EVENT_TRACE_CATEGORY_CLK_PWR"
+      ],
+      "args_name": "clk_status",
+      "forced_id": false,
+      "category_mask": 32,
+      "args": [
+        {
+          "name": "clk_status",
+          "description": "0 for clk stopped, 1 for allowed into deep sleep, 2 for active",
+          "lookup": "TODO",
+          "type": "uint32",
+          "count": 1,
+          "format": ""
+        }
+      ],
+      "type": null
+    },
+    "42": {
+      "name": "ipu_hclk_status",
+      "description": "IPU HCLK changed to active or is allowed to go into deep sleep.",
+      "categories": [
+        "EVENT_TRACE_CATEGORY_CLK_PWR"
+      ],
+      "args_name": "clk_status",
+      "forced_id": false,
+      "category_mask": 32,
+      "args": [
+        {
+          "name": "clk_status",
+          "description": "0 for clk stopped, 1 for allowed into deep sleep, 2 for active",
+          "lookup": "TODO",
+          "type": "uint32",
+          "count": 1,
+          "format": ""
+        }
+      ],
+      "type": null
+    },
+    "43": {
+      "name": "l1mmu_pwr",
+      "description": "L1MMU power-on event.",
+      "categories": [
+        "EVENT_TRACE_CATEGORY_CLK_PWR"
+      ],
+      "args_name": "power_status",
+      "forced_id": false,
+      "category_mask": 32,
+      "args": [
+        {
+          "name": "pwr_status",
+          "description": "1 for power up, 0 for power down",
+          "lookup": "",
+          "type": "uint32",
+          "count": 1,
+          "format": ""
+        }
+      ],
+      "type": null
+    },
+    "44": {
+      "name": "nbif_clk_status",
+      "description": "IPU AIE changed to active, stop, or it is allowed to go into deep sleep.",
+      "categories": [
+        "EVENT_TRACE_CATEGORY_CLK_PWR"
+      ],
+      "args_name": "clk_status",
+      "forced_id": false,
+      "category_mask": 32,
+      "args": [
+        {
+          "name": "clk_status",
+          "description": "0 for clk stopped, 1 for allowed into deep sleep, 2 for active",
+          "lookup": "TODO",
+          "type": "uint32",
+          "count": 1,
+          "format": ""
+        }
+      ],
+      "type": null
+    },
+    "45": {
+      "name": "pmfw_column_busy",
+      "description": "PMFW column busy indicator was set.",
+      "categories": [
+        "EVENT_TRACE_CATEGORY_CLK_PWR",
+        "EVENT_TRACE_CATEGORY_PMFW"
+      ],
+      "args_name": "pmfw_col_busy",
+      "forced_id": false,
+      "category_mask": 160,
+      "args": [
+        {
+          "name": "start_col",
+          "description": "Start column.",
+          "lookup": "",
+          "type": "uint32",
+          "count": 1,
+          "format": ""
+        },
+        {
+          "name": "num_col",
+          "description": "Number of columns.",
+          "lookup": "",
+          "type": "uint32",
+          "count": 1,
+          "format": ""
+        },
+        {
+          "name": "busy",
+          "description": "",
+          "lookup": "",
+          "type": "uint8",
+          "count": 1,
+          "format": ""
+        },
+        {
+          "name": "reserved",
+          "description": "",
+          "lookup": "",
+          "type": "uint8",
+          "count": 3,
+          "format": ""
+        }
+      ],
+      "type": null
+    },
+    "46": {
+      "name": "uc_critical_error",
+      "description": "uC reported a critical error.",
+      "categories": [
+        "EVENT_TRACE_CATEGORY_HWS",
+        "EVENT_TRACE_CATEGORY_UC",
+        "EVENT_TRACE_CATEGORY_ERROR"
+      ],
+      "args_name": "uc_int",
+      "forced_id": false,
+      "category_mask": 76,
+      "args": [
+        {
+          "name": "context_id",
+          "description": "",
+          "lookup": "",
+          "type": "uint32",
+          "count": 1,
+          "format": ""
+        },
+        {
+          "name": "col",
+          "description": "Column that triggered the interrupt",
+          "lookup": "",
+          "type": "uint8",
+          "count": 1,
+          "format": ""
+        },
+        {
+          "name": "app",
+          "description": "app",
+          "lookup": "",
+          "type": "uint8",
+          "count": 1,
+          "format": ""
+        },
+        {
+          "name": "part_id",
+          "description": "Partition ID",
+          "lookup": "",
+          "type": "uint8",
+          "count": 1,
+          "format": ""
+        }
+      ],
+      "type": null
+    },
+    "47": {
+      "name": "npi_interrupt",
+      "description": "NPI interrupt event.",
+      "categories": [
+        "EVENT_TRACE_CATEGORY_ERROR"
+      ],
+      "args_name": "npi_interrupt",
+      "forced_id": false,
+      "category_mask": 64,
+      "args": [
+        {
+          "name": "irq_index",
+          "description": "NPI interrupt index",
+          "lookup": "",
+          "type": "uint32",
+          "count": 1,
+          "format": ""
+        }
+      ],
+      "type": null
+    },
+    "48": {
+      "name": "ctx_error",
+      "description": "There was an error with the hw context.",
+      "categories": [
+        "EVENT_TRACE_CATEGORY_ERROR"
+      ],
+      "args_name": "context_event",
+      "forced_id": false,
+      "category_mask": 64,
+      "args": [
+        {
+          "name": "context_id",
+          "description": "The context ID associated with the event.",
+          "lookup": "",
+          "type": "uint32",
+          "count": 1,
+          "format": ""
+        }
+      ],
+      "type": null
+    },
+    "49": {
+      "name": "pmfw_msg_fail",
+      "description": "Failed to send a message to PMFW.",
+      "categories": [
+        "EVENT_TRACE_CATEGORY_ERROR",
+        "EVENT_TRACE_CATEGORY_PMFW"
+      ],
+      "args_name": "pmfw_msg_fail",
+      "forced_id": false,
+      "category_mask": 192,
+      "args": [
+        {
+          "name": "msg_id",
+          "description": "The message ID that failed to send.",
+          "lookup": "TODO",
+          "type": "uint32",
+          "count": 1,
+          "format": ""
+        },
+        {
+          "name": "ret_val",
+          "description": "The return value from the failed send attempt.",
+          "lookup": "TODO",
+          "type": "int32",
+          "count": 1,
+          "format": ""
+        }
+      ],
+      "type": null
+    },
+    "50": {
+      "name": "dpm_set_state",
+      "description": "DPM state (active/inactive) was changed for a specific DPM ID.",
+      "categories": [
+        "EVENT_TRACE_CATEGORY_DPM"
+      ],
+      "args_name": "dpm_set_state",
+      "forced_id": false,
+      "category_mask": 256,
+      "args": [
+        {
+          "name": "ctx_id",
+          "description": "The CTX ID whose state is being set.",
+          "lookup": "",
+          "type": "uint16",
+          "count": 1,
+          "format": ""
+        },
+        {
+          "name": "active",
+          "description": "The new state of the DPM (0 for inactive, 1 for active).",
+          "lookup": "",
+          "type": "uint8",
+          "count": 1,
+          "format": ""
+        },
+        {
+          "name": "reserved",
+          "description": "",
+          "lookup": "",
+          "type": "uint8",
+          "count": 1,
+          "format": ""
+        }
+      ],
+      "type": null
+    },
+    "51": {
+      "name": "pmfw_get_aieclk",
+      "description": "Request aieclk frequency to pmfw given a DPM level.",
+      "categories": [
+        "EVENT_TRACE_CATEGORY_DPM"
+      ],
+      "args_name": "pmfw_get_clk",
+      "forced_id": false,
+      "category_mask": 256,
+      "args": [
+        {
+          "name": "dpm_level",
+          "description": "DPM level for which to get the frequency.",
+          "lookup": "",
+          "type": "uint32",
+          "count": 1,
+          "format": ""
+        },
+        {
+          "name": "frequency",
+          "description": "Frecuency for the specified DPM level.",
+          "lookup": "",
+          "type": "uint32",
+          "count": 1,
+          "format": ""
+        },
+        {
+          "name": "pmfw_msg_ret_val",
+          "description": "Return value of the send_message transaction.",
+          "lookup": "",
+          "type": "int32",
+          "count": 1,
+          "format": ""
+        }
+      ],
+      "type": null
+    },
+    "52": {
+      "name": "pmfw_get_npuhclk",
+      "description": "Request npuhclk frequency to pmfw given a DPM level.",
+      "categories": [
+        "EVENT_TRACE_CATEGORY_DPM"
+      ],
+      "args_name": "pmfw_get_clk",
+      "forced_id": false,
+      "category_mask": 256,
+      "args": [
+        {
+          "name": "dpm_level",
+          "description": "DPM level for which to get the frequency.",
+          "lookup": "",
+          "type": "uint32",
+          "count": 1,
+          "format": ""
+        },
+        {
+          "name": "frequency",
+          "description": "Frecuency for the specified DPM level.",
+          "lookup": "",
+          "type": "uint32",
+          "count": 1,
+          "format": ""
+        },
+        {
+          "name": "pmfw_msg_ret_val",
+          "description": "Return value of the send_message transaction.",
+          "lookup": "",
+          "type": "int32",
+          "count": 1,
+          "format": ""
+        }
+      ],
+      "type": null
+    },
+    "53": {
+      "name": "pmfw_set_aieclk",
+      "description": "Set aie clk DPM level.",
+      "categories": [
+        "EVENT_TRACE_CATEGORY_DPM"
+      ],
+      "args_name": "pmfw_set_clk",
+      "forced_id": false,
+      "category_mask": 256,
+      "args": [
+        {
+          "name": "dpm_level",
+          "description": "DPM level to set.",
+          "lookup": "",
+          "type": "uint32",
+          "count": 1,
+          "format": ""
+        },
+        {
+          "name": "pmfw_msg_ret_val",
+          "description": "Return value of the send_message transaction.",
+          "lookup": "",
+          "type": "int32",
+          "count": 1,
+          "format": ""
+        }
+      ],
+      "type": null
+    },
+    "54": {
+      "name": "pmfw_set_npuhclk",
+      "description": "Set aie clk DPM level.",
+      "categories": [
+        "EVENT_TRACE_CATEGORY_DPM"
+      ],
+      "args_name": "pmfw_set_clk",
+      "forced_id": false,
+      "category_mask": 256,
+      "args": [
+        {
+          "name": "dpm_level",
+          "description": "DPM level to set.",
+          "lookup": "",
+          "type": "uint32",
+          "count": 1,
+          "format": ""
+        },
+        {
+          "name": "pmfw_msg_ret_val",
+          "description": "Return value of the send_message transaction.",
+          "lookup": "",
+          "type": "int32",
+          "count": 1,
+          "format": ""
+        }
+      ],
+      "type": null
+    },
+    "55": {
+      "name": "pmfw_can_enter_z8",
+      "description": "Indicate to PMFW whether Z8 can be entered or not.",
+      "categories": [
+        "EVENT_TRACE_CATEGORY_PMFW"
+      ],
+      "args_name": "pmfw_can_enter_z8",
+      "forced_id": false,
+      "category_mask": 128,
+      "args": [
+        {
+          "name": "z8_status",
+          "description": "Indicates MPNPU firmware's z8 status. 1 if it can enter z8, 0 otherwise.",
+          "lookup": "",
+          "type": "uint32",
+          "count": 1,
+          "format": ""
+        }
+      ],
+      "type": null
+    },
+    "56": {
+      "name": "sriov_pf_bdf",
+      "description": "SR-IOV PF BDF information.",
+      "categories": [
+        "EVENT_TRACE_CATEGORY_SRIOV"
+      ],
+      "args_name": "sriov_bdf",
+      "forced_id": false,
+      "category_mask": 512,
+      "args": [
+        {
+          "name": "pf_bus",
+          "description": "PF Bus number.",
+          "lookup": "",
+          "type": "uint16",
+          "count": 1,
+          "format": ""
+        },
+        {
+          "name": "pf_device",
+          "description": "PF Device number.",
+          "lookup": "",
+          "type": "uint16",
+          "count": 1,
+          "format": ""
+        },
+        {
+          "name": "pf_function",
+          "description": "PF Function number.",
+          "lookup": "",
+          "type": "uint16",
+          "count": 1,
+          "format": ""
+        },
+        {
+          "name": "reserved",
+          "description": "",
+          "lookup": "",
+          "type": "uint16",
+          "count": 1,
+          "format": ""
+        }
+      ],
+      "type": null
+    },
+    "57": {
+      "name": "sriov_vf_routing",
+      "description": "SR-IOV VF routing information.",
+      "categories": [
+        "EVENT_TRACE_CATEGORY_SRIOV"
+      ],
+      "args_name": "sriov_vf_routing",
+      "forced_id": false,
+      "category_mask": 512,
+      "args": [
+        {
+          "name": "first_vf_offset",
+          "description": "First VF Offset register value.",
+          "lookup": "",
+          "type": "uint32",
+          "count": 1,
+          "format": ""
+        },
+        {
+          "name": "vf_stride",
+          "description": "VF Stride register value.",
+          "lookup": "",
+          "type": "uint32",
+          "count": 1,
+          "format": ""
+        }
+      ],
+      "type": null
+    }
+  }
+}

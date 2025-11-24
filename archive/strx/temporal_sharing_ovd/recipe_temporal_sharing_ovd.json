@@ -6,7 +6,7 @@
   "resources": {
     "buffers": [],
     "kernels": [
-      { "name": "dpu_kernel", "instance": "DPU", "ctrlcode": "nop.elf" }
+      { "name": "dpu_kernel", "instance": "DPU", "ctrlcode": "gemm.elf" }
     ]
   },
   "execution": {

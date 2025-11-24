@@ -3,9 +3,9 @@
   "executions": {
    "throughput": {
     "runlist_threshold": 0,
-    "iterations": 10000,
+    "iterations": 100,
     "mode": "throughput",
-    "depth": 20, 
+    "depth": 15, 
     "verbose": false
    }
   }

@@ -2,7 +2,7 @@
   "version": {
     "product": 0,
     "schema": 0,
-    "major": 1,
+    "major": 2,
     "minor": 0
   },
   "enumerations": {
@@ -77,6 +77,46 @@
           "type": "uint32_t",
           "width": 16,
           "format": "0x{:04X}"
+        }
+      ]
+    },
+    "ipu_log_ring_entry_header": {
+      "fields": [
+        {
+          "name": "magic",
+          "type": "uint8_t"
+        },
+        {
+          "name": "payload_words",
+          "type": "uint8_t"
+        },
+        {
+          "name": "sequence_number",
+          "type": "uint16_t"
+        },
+        {
+          "name": "rsvd",
+          "type": "uint32_t"
+        }
+      ]
+    },
+    "ipu_log_ring_entry_footer": {
+      "fields": [
+        {
+          "name": "rsvd",
+          "type": "uint32_t"
+        },
+        {
+          "name": "sequence_number",
+          "type": "uint16_t"
+        },
+        {
+          "name": "payload_words",
+          "type": "uint8_t"
+        },
+        {
+          "name": "magic",
+          "type": "uint8_t"
         }
       ]
     }

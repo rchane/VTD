@@ -1,0 +1,12 @@
+{
+  "version": "1.0",
+  "executions": {
+   "throughput": {
+    "runlist_threshold": 0,
+    "iterations": 100,
+    "mode": "throughput",
+    "depth": 15, 
+    "verbose": false
+   }
+  }
+}

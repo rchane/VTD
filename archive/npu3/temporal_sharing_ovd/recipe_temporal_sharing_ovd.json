@@ -1,0 +1,21 @@
+{
+  "version": "1.0",
+  "header": {
+    "program": "gemm.elf"
+  },
+  "resources": {
+    "buffers": [],
+    "kernels": [
+      { "name": "k1", "instance": "DPU"}
+    ]
+  },
+  "execution": {
+    "runs": [
+      {
+        "name": "k1",
+        "arguments": []
+      }
+    ]
+  }
+}
+

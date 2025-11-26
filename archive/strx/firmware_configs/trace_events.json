@@ -2,7 +2,7 @@
   "version": {
     "product": 0,
     "schema": 0,
-    "major": 1,
+    "major": 2,
     "minor": 0
   },
   "data_format": {
@@ -34,7 +34,8 @@
       "22": "IPU_MSG_APP_RELEASE_PARTITION",
       "23": "IPU_MSG_EXEC_NPU_CMD",
       "24": "IPU_MSG_EXEC_NPU_CMD_CHAIN",
-      "25": "IPU_MSG_MAX_XRT_OPCODE",
+      "25": "IPU_MSG_APP_WRITE_LOG_MSG",
+      "26": "IPU_MSG_MAX_XRT_OPCODE",
       "257": "IPU_MSG_SUSPEND",
       "258": "IPU_MSG_RESUME",
       "259": "IPU_MSG_ASSIGN_MGMT_PASID",
@@ -57,7 +58,13 @@
       "276": "IPU_MSG_GET_APP_HEALTH",
       "277": "IPU_MSG_ADD_HOST_BUFFER",
       "278": "IPU_MSG_CONFIG_LOGGING_DRAM_BUF",
-      "279": "IPU_MSG_MAX_DRV_OPCODE",
+      "279": "IPU_MSG_GET_DEVICE_REVISION",
+      "280": "IPU_MSG_MGMT_WRITE_LOG_MSG",
+      "281": "IPU_MSG_GET_AIE_COREDUMP",
+      "282": "IPU_MSG_GET_EVENT_TRACE_STATUS",
+      "283": "IPU_MSG_MGMT_TRACE_EVENT",
+      "284": "IPU_MSG_CALIBRATE_TIME",
+      "285": "IPU_MSG_MAX_DRV_OPCODE",
       "513": "IPU_MSG_ASYNC_MSG_AIE_ERROR",
       "514": "IPU_MSG_ASYNC_MSG_RES_CLEANUP_FAIL",
       "515": "IPU_MSG_AIE_DEBUG_ACCESS",
@@ -89,7 +96,8 @@
       "24": "RTOS_FW_ERROR_WAIT_POLL_STATE_MISMATCH",
       "25": "RTOS_FW_ERROR_WAIT_POLL_TASKS_NOT_FOUND",
       "34": "RTOS_FW_ERROR_UNIMPLEMENTED_FEATURE",
-      "35": "RTOS_FW_ERROR_INDEX_OUT_OF_BOUNDS"
+      "35": "RTOS_FW_ERROR_INDEX_OUT_OF_BOUNDS",
+      "37": "RTOS_FW_ERROR_REQUIRED_TLB_MAP_FAILED"
     }
   },
   "categories": [
@@ -199,6 +207,15 @@
         "format": "",
         "description": "",
         "signed": false
+      },
+      {
+        "name": "virt_ctx",
+        "width": 8,
+        "start": 20,
+        "format": "",
+        "description": "",
+        "lookup": "",
+        "signed": false
       }
     ],
     "pdi_load": [
@@ -216,6 +233,15 @@
         "width": 32,
         "format": "08x",
         "start": 4,
+        "description": "",
+        "lookup": "",
+        "signed": false
+      },
+      {
+        "name": "virt_ctx",
+        "width": 8,
+        "start": 36,
+        "format": "",
         "description": "",
         "lookup": "",
         "signed": false
@@ -239,6 +265,15 @@
         "description": "",
         "lookup": "",
         "signed": false
+      },
+      {
+        "name": "virt_ctx",
+        "width": 8,
+        "start": 36,
+        "format": "",
+        "description": "",
+        "lookup": "",
+        "signed": false
       }
     ],
     "context": [
@@ -246,6 +281,15 @@
         "name": "context_id",
         "width": 4,
         "start": 0,
+        "format": "",
+        "description": "",
+        "lookup": "",
+        "signed": false
+      },
+      {
+        "name": "virt_ctx",
+        "width": 8,
+        "start": 4,
         "format": "",
         "description": "",
         "lookup": "",
@@ -288,6 +332,15 @@
         "description": "",
         "lookup": "",
         "signed": false
+      },
+      {
+        "name": "virt_ctx",
+        "width": 8,
+        "start": 28,
+        "format": "",
+        "description": "",
+        "lookup": "",
+        "signed": false
       }
     ],
     "delete_context": [
@@ -308,6 +361,15 @@
         "description": "",
         "lookup": "",
         "signed": false
+      },
+      {
+        "name": "virt_ctx",
+        "width": 8,
+        "start": 36,
+        "format": "",
+        "description": "",
+        "lookup": "",
+        "signed": false
       }
     ],
     "preemption": [
@@ -324,6 +386,15 @@
         "name": "op_id",
         "width": 32,
         "start": 4,
+        "format": "",
+        "description": "",
+        "lookup": "",
+        "signed": false
+      },
+      {
+        "name": "virt_ctx",
+        "width": 8,
+        "start": 36,
         "format": "",
         "description": "",
         "lookup": "",
@@ -400,6 +471,15 @@
           "format": "",
           "description": "",
           "signed": false
+        },
+        {
+          "name": "virt_ctx",
+          "width": 8,
+          "start": 20,
+          "format": "",
+          "description": "",
+          "lookup": "",
+          "signed": false
         }
       ],
       "type": "start",
@@ -432,6 +512,15 @@
           "start": 4,
           "format": "",
           "description": "",
+          "signed": false
+        },
+        {
+          "name": "virt_ctx",
+          "width": 8,
+          "start": 20,
+          "format": "",
+          "description": "",
+          "lookup": "",
           "signed": false
         }
       ],
@@ -484,6 +573,15 @@
           "description": "",
           "lookup": "",
           "signed": false
+        },
+        {
+          "name": "virt_ctx",
+          "width": 8,
+          "start": 28,
+          "format": "",
+          "description": "",
+          "lookup": "",
+          "signed": false
         }
       ],
       "type": null
@@ -516,6 +614,15 @@
           "description": "",
           "lookup": "",
           "signed": false
+        },
+        {
+          "name": "virt_ctx",
+          "width": 8,
+          "start": 36,
+          "format": "",
+          "description": "",
+          "lookup": "",
+          "signed": false
         }
       ],
       "type": null
@@ -544,6 +651,15 @@
           "name": "op_id",
           "width": 32,
           "start": 4,
+          "format": "",
+          "description": "",
+          "lookup": "",
+          "signed": false
+        },
+        {
+          "name": "virt_ctx",
+          "width": 8,
+          "start": 36,
           "format": "",
           "description": "",
           "lookup": "",
@@ -581,6 +697,15 @@
           "description": "",
           "lookup": "",
           "signed": false
+        },
+        {
+          "name": "virt_ctx",
+          "width": 8,
+          "start": 36,
+          "format": "",
+          "description": "",
+          "lookup": "",
+          "signed": false
         }
       ],
       "type": "done",
@@ -605,6 +730,15 @@
           "description": "",
           "lookup": "",
           "signed": false
+        },
+        {
+          "name": "virt_ctx",
+          "width": 8,
+          "start": 4,
+          "format": "",
+          "description": "",
+          "lookup": "",
+          "signed": false
         }
       ],
       "type": "start",
@@ -625,6 +759,15 @@
           "name": "context_id",
           "width": 4,
           "start": 0,
+          "format": "",
+          "description": "",
+          "lookup": "",
+          "signed": false
+        },
+        {
+          "name": "virt_ctx",
+          "width": 8,
+          "start": 4,
           "format": "",
           "description": "",
           "lookup": "",
@@ -936,6 +1079,15 @@
           "description": "",
           "lookup": "",
           "signed": false
+        },
+        {
+          "name": "virt_ctx",
+          "width": 8,
+          "start": 36,
+          "format": "",
+          "description": "",
+          "lookup": "",
+          "signed": false
         }
       ],
       "type": "start",
@@ -965,6 +1117,15 @@
           "width": 32,
           "format": "08x",
           "start": 4,
+          "description": "",
+          "lookup": "",
+          "signed": false
+        },
+        {
+          "name": "virt_ctx",
+          "width": 8,
+          "start": 36,
+          "format": "",
           "description": "",
           "lookup": "",
           "signed": false
@@ -1000,6 +1161,15 @@
           "description": "",
           "lookup": "",
           "signed": false
+        },
+        {
+          "name": "virt_ctx",
+          "width": 8,
+          "start": 36,
+          "format": "",
+          "description": "",
+          "lookup": "",
+          "signed": false
         }
       ],
       "type": "start",
@@ -1032,6 +1202,15 @@
           "description": "",
           "lookup": "",
           "signed": false
+        },
+        {
+          "name": "virt_ctx",
+          "width": 8,
+          "start": 36,
+          "format": "",
+          "description": "",
+          "lookup": "",
+          "signed": false
         }
       ],
       "type": "done",
@@ -1051,6 +1230,15 @@
           "name": "context_id",
           "width": 4,
           "start": 0,
+          "format": "",
+          "description": "",
+          "lookup": "",
+          "signed": false
+        },
+        {
+          "name": "virt_ctx",
+          "width": 8,
+          "start": 4,
           "format": "",
           "description": "",
           "lookup": "",
@@ -1078,6 +1266,15 @@
           "description": "",
           "lookup": "",
           "signed": false
+        },
+        {
+          "name": "virt_ctx",
+          "width": 8,
+          "start": 4,
+          "format": "",
+          "description": "",
+          "lookup": "",
+          "signed": false
         }
       ],
       "type": "done",
@@ -1101,6 +1298,15 @@
           "description": "",
           "lookup": "",
           "signed": false
+        },
+        {
+          "name": "virt_ctx",
+          "width": 8,
+          "start": 4,
+          "format": "",
+          "description": "",
+          "lookup": "",
+          "signed": false
         }
       ],
       "type": "start",
@@ -1120,6 +1326,15 @@
           "name": "context_id",
           "width": 4,
           "start": 0,
+          "format": "",
+          "description": "",
+          "lookup": "",
+          "signed": false
+        },
+        {
+          "name": "virt_ctx",
+          "width": 8,
+          "start": 4,
           "format": "",
           "description": "",
           "lookup": "",
@@ -1156,9 +1371,88 @@
           "description": "",
           "lookup": "",
           "signed": false
+        },
+        {
+          "name": "virt_ctx",
+          "width": 8,
+          "start": 36,
+          "format": "",
+          "description": "",
+          "lookup": "",
+          "signed": false
         }
       ],
       "type": null
+    }
+  },
+  "structures": {
+    "ring_buffer_entry_header": {
+      "align": 8,
+      "size": 8,
+      "fields": [
+        {
+          "name": "magic",
+          "type": "uint8_t",
+          "description": "0xCA"
+        },
+        {
+          "name": "payload_words",
+          "type": "uint8_t",
+          "description": "size in multiple of sizeof(uint64_t) of payload (excluding this header and corresponding footer)"
+        },
+        {
+          "name": "sequence_number",
+          "type": "uint16_t",
+          "description": "1 - 2^16-1: valid entries"
+        },
+        {
+          "name": "rsvd",
+          "type": "uint32_t",
+          "description": "NPU firmware will initialize this to 0"
+        }
+      ]
+    },
+    "ring_buffer_entry_data": {
+      "align": 8,
+      "size": 16,
+      "fields": [
+        {
+          "name": "timestamp",
+          "type": "uint64_t",
+          "description": "Timestamp in nanoseconds"
+        },
+        {
+          "name": "payload",
+          "type": "uint64_t",
+          "description": "event and arguments packed into a 64 bit value"
+        }
+      ]
+    },
+    "ring_buffer_entry_footer": {
+      "align": 8,
+      "size": 8,
+      "fields": [
+        {
+          "name": "rsvd",
+          "type": "uint32_t",
+          "description": "NPU firmware will initialize this to 0"
+        },
+        {
+          "name": "sequence_number",
+          "type": "uint16_t",
+          "description": "1 - 2^16-1: valid entries"
+        },
+        {
+          "name": "payload_words",
+          "type": "uint8_t",
+          "description": "size in multiple of sizeof(uint64_t) of payload (excluding this header and corresponding footer)"
+        },
+        {
+          "name": "magic",
+          "type": "uint8_t",
+          "description": "0xBA"
+        }
+      ]
     }
   }
 }

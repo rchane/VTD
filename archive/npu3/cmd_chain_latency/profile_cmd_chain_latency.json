@@ -1,6 +1,5 @@
 {
   "version": "1.0",
-
   "execution" : {
     "iterations": 1,
     "verbose": false,

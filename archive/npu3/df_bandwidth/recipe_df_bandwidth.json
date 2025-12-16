@@ -19,9 +19,6 @@
         "arguments" : [
           { "name": "ifm", "argidx": 0 },
           { "name": "ofm", "argidx": 1 }
-        ],
-        "constants": [
-          { "value": 3, "type": "int", "argidx": 0 }
         ]
       }
     ]

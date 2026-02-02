@@ -1,7 +1,7 @@
 {
   "version": "1.0",
   "execution" : {
-    "iterations": 20,
+    "iterations": 1000,
     "verbose": false,
     "mode": "latency"
   }

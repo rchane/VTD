@@ -19,7 +19,7 @@
     }
   ],
   "execution" : {
-    "iterations": 100,
+    "iterations": 1000,
     "iteration" : {
       "init" : false
     },

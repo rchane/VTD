@@ -1,8 +1,8 @@
 {
   "version": {
     "product": 1,
-    "schema": 0,
-    "major": 1,
+    "schema_version": 0,
+    "major": 3,
     "minor": 0
   },
   "data_format": null,
@@ -62,14 +62,35 @@
       "forced_id": false
     },
     {
+      "name": "EVENT_TRACE_CATEGORY_DPM_ALGO",
+      "description": "DPM algorithm-related events.",
+      "id": 9,
+      "forced_id": false
+    },
+    {
       "name": "EVENT_TRACE_CATEGORY_SRIOV",
       "description": "EVENT_TRACE_CATEGORY_SRIOV",
-      "id": 9,
+      "id": 10,
+      "forced_id": false
+    },
+    {
+      "name": "EVENT_TRACE_CATEGORY_GPU_VIEW",
+      "description": "GPU View related events.",
+      "id": 11,
       "forced_id": false
     }
   ],
   "arg_sets": {
-    "no_args": [],
+    "no_args": [
+      {
+        "name": "reserved",
+        "description": "Padding for 8-byte alignment",
+        "lookup": "",
+        "type": "uint8",
+        "count": 4,
+        "format": ""
+      }
+    ],
     "uc_int": [
       {
         "name": "context_id",
@@ -102,6 +123,30 @@
         "type": "uint8",
         "count": 1,
         "format": ""
+      },
+      {
+        "name": "reserved1",
+        "description": "Reserved field.",
+        "lookup": "",
+        "type": "uint8",
+        "count": 1,
+        "format": ""
+      },
+      {
+        "name": "context_handle",
+        "description": "The handle associated to the context.",
+        "lookup": "",
+        "type": "uint64",
+        "count": 1,
+        "format": ""
+      },
+      {
+        "name": "reserved",
+        "description": "Padding for 8-byte alignment",
+        "lookup": "",
+        "type": "uint8",
+        "count": 4,
+        "format": ""
       }
     ],
     "clk_status": [
@@ -122,6 +167,14 @@
         "type": "uint32",
         "count": 1,
         "format": ""
+      },
+      {
+        "name": "context_handle",
+        "description": "The handle associated to the context.",
+        "lookup": "",
+        "type": "uint64",
+        "count": 1,
+        "format": ""
       }
     ],
     "create_partition_message": [
@@ -139,6 +192,14 @@
         "lookup": "",
         "type": "uint32",
         "count": 1,
+        "format": ""
+      },
+      {
+        "name": "reserved",
+        "description": "Padding for 8-byte alignment",
+        "lookup": "",
+        "type": "uint8",
+        "count": 4,
         "format": ""
       }
     ],
@@ -158,6 +219,14 @@
         "description": "Doorbell index",
         "lookup": "",
         "type": "uint32",
+        "count": 1,
+        "format": ""
+      },
+      {
+        "name": "context_handle",
+        "description": "Handle of the context associated to the doorbell",
+        "lookup": "",
+        "type": "uint64",
         "count": 1,
         "format": ""
       }
@@ -181,7 +250,7 @@
       },
       {
         "name": "reserved",
-        "description": "",
+        "description": "Padding for 8-byte alignment",
         "lookup": "",
         "type": "uint8",
         "count": 1,
@@ -204,6 +273,14 @@
         "type": "uint32",
         "count": 1,
         "format": "08x"
+      },
+      {
+        "name": "reserved",
+        "description": "Padding for 8-byte alignment",
+        "lookup": "",
+        "type": "uint8",
+        "count": 4,
+        "format": ""
       }
     ],
     "mailbox_message_response": [
@@ -257,6 +334,14 @@
         "lookup": "",
         "type": "uint32",
         "count": 1,
+        "format": ""
+      },
+      {
+        "name": "reserved",
+        "description": "Padding for 8-byte alignment",
+        "lookup": "",
+        "type": "uint8",
+        "count": 4,
         "format": ""
       }
     ],
@@ -333,7 +418,7 @@
       },
       {
         "name": "reserved",
-        "description": "",
+        "description": "Padding for 8-byte alignment",
         "lookup": "",
         "type": "uint8",
         "count": 3,
@@ -359,10 +444,10 @@
       },
       {
         "name": "reserved",
-        "description": "",
+        "description": "Padding for 8-byte alignment",
         "lookup": "",
         "type": "uint8",
-        "count": 3,
+        "count": 7,
         "format": ""
       }
     ],
@@ -401,7 +486,7 @@
       },
       {
         "name": "reserved",
-        "description": "Reserved for future use.",
+        "description": "Padding for 8-byte alignment",
         "lookup": "",
         "type": "uint8",
         "count": 3,
@@ -467,10 +552,10 @@
       },
       {
         "name": "reserved",
-        "description": "Reserved for alignment to 4-byte boundary.",
+        "description": "Padding for 8-byte alignment",
         "lookup": "",
         "type": "uint8",
-        "count": 1,
+        "count": 5,
         "format": ""
       }
     ],
@@ -485,7 +570,7 @@
       },
       {
         "name": "reserved",
-        "description": "Reserved for alignment to 4-byte boundary.",
+        "description": "Padding for 8-byte alignment",
         "lookup": "",
         "type": "uint8",
         "count": 3,
@@ -519,10 +604,10 @@
       },
       {
         "name": "reserved",
-        "description": "",
+        "description": "Padding for 8-byte alignment",
         "lookup": "",
-        "type": "uint16",
-        "count": 1,
+        "type": "uint8",
+        "count": 6,
         "format": ""
       }
     ],
@@ -541,6 +626,14 @@
         "lookup": "",
         "type": "uint32",
         "count": 1,
+        "format": ""
+      },
+      {
+        "name": "reserved",
+        "description": "Padding for 8-byte alignment",
+        "lookup": "",
+        "type": "uint8",
+        "count": 4,
         "format": ""
       }
     ],
@@ -612,6 +705,14 @@
         "type": "uint32",
         "count": 1,
         "format": ""
+      },
+      {
+        "name": "reserved",
+        "description": "Padding for 8-byte alignment",
+        "lookup": "",
+        "type": "uint8",
+        "count": 4,
+        "format": ""
       }
     ],
     "create_hw_context_message_done": [
@@ -646,6 +747,14 @@
         "type": "uint32",
         "count": 1,
         "format": ""
+      },
+      {
+        "name": "reserved",
+        "description": "Padding for 8-byte alignment",
+        "lookup": "",
+        "type": "uint8",
+        "count": 4,
+        "format": ""
       }
     ],
     "destroy_hw_context_message": [
@@ -663,6 +772,14 @@
         "lookup": "",
         "type": "uint32",
         "count": 1,
+        "format": ""
+      },
+      {
+        "name": "reserved",
+        "description": "Padding for 8-byte alignment",
+        "lookup": "",
+        "type": "uint8",
+        "count": 4,
         "format": ""
       }
     ],
@@ -691,6 +808,14 @@
         "lookup": "TODO",
         "type": "uint32",
         "count": 1,
+        "format": ""
+      },
+      {
+        "name": "reserved",
+        "description": "Padding for 8-byte alignment",
+        "lookup": "",
+        "type": "uint8",
+        "count": 4,
         "format": ""
       }
     ],
@@ -725,6 +850,14 @@
         "lookup": "",
         "type": "uint32",
         "count": 1,
+        "format": ""
+      },
+      {
+        "name": "reserved",
+        "description": "Padding for 8-byte alignment",
+        "lookup": "",
+        "type": "uint8",
+        "count": 4,
         "format": ""
       }
     ],
@@ -767,32 +900,6 @@
         "lookup": "",
         "type": "uint32",
         "count": 1,
-        "format": ""
-      }
-    ],
-    "ctx_idle": [
-      {
-        "name": "context_id",
-        "description": "The context ID that went idle.",
-        "lookup": "",
-        "type": "uint32",
-        "count": 1,
-        "format": ""
-      },
-      {
-        "name": "has_remaining_work",
-        "description": "1 if context was preempted and has remaining work, 0 if work completed normally.",
-        "lookup": "",
-        "type": "uint8",
-        "count": 1,
-        "format": ""
-      },
-      {
-        "name": "reserved",
-        "description": "",
-        "lookup": "",
-        "type": "uint8",
-        "count": 3,
         "format": ""
       }
     ],
@@ -848,6 +955,14 @@
         "type": "int32",
         "count": 1,
         "format": ""
+      },
+      {
+        "name": "reserved",
+        "description": "Padding for 8-byte alignment",
+        "lookup": "",
+        "type": "uint8",
+        "count": 4,
+        "format": ""
       }
     ],
     "pmfw_set_clk": [
@@ -865,6 +980,14 @@
         "lookup": "",
         "type": "int32",
         "count": 1,
+        "format": ""
+      },
+      {
+        "name": "reserved",
+        "description": "Padding for 8-byte alignment",
+        "lookup": "",
+        "type": "uint8",
+        "count": 4,
         "format": ""
       }
     ],
@@ -891,6 +1014,84 @@
         "lookup": "",
         "type": "uint32",
         "count": 1,
+        "format": ""
+      }
+    ],
+    "dpm_algo_process_busy_calculated": [
+      {
+        "name": "busy_percentage",
+        "description": "System busyness percentage (0-100).",
+        "lookup": "",
+        "type": "uint32",
+        "count": 1,
+        "format": ""
+      }
+    ],
+    "dpm_algo_process_dpm_levels_calculated": [
+      {
+        "name": "comp_dpm_level",
+        "description": "Computed DPM level for compute.",
+        "lookup": "",
+        "type": "int8",
+        "count": 1,
+        "format": ""
+      },
+      {
+        "name": "band_dpm_level",
+        "description": "Computed DPM level for bandwidth.",
+        "lookup": "",
+        "type": "int8",
+        "count": 1,
+        "format": ""
+      },
+      {
+        "name": "reserved",
+        "description": "Padding for 8-byte alignment",
+        "lookup": "",
+        "type": "uint8",
+        "count": 2,
+        "format": ""
+      }
+    ],
+    "dpm_algo_qos_update": [
+      {
+        "name": "min_compute_freq_mhz",
+        "description": "Minimum compute frequency in MHz from QoS.",
+        "lookup": "",
+        "type": "uint32",
+        "count": 1,
+        "format": ""
+      },
+      {
+        "name": "min_bandwidth_freq_mhz",
+        "description": "Minimum bandwidth frequency in MHz from QoS.",
+        "lookup": "",
+        "type": "uint32",
+        "count": 1,
+        "format": ""
+      },
+      {
+        "name": "comp_dpm_level",
+        "description": "Computed DPM level for compute.",
+        "lookup": "",
+        "type": "int8",
+        "count": 1,
+        "format": ""
+      },
+      {
+        "name": "band_dpm_level",
+        "description": "Computed DPM level for bandwidth.",
+        "lookup": "",
+        "type": "int8",
+        "count": 1,
+        "format": ""
+      },
+      {
+        "name": "reserved",
+        "description": "Padding for 8-byte alignment",
+        "lookup": "",
+        "type": "uint8",
+        "count": 2,
         "format": ""
       }
     ]
@@ -921,6 +1122,14 @@
           "type": "uint32",
           "count": 1,
           "format": "08x"
+        },
+        {
+          "name": "reserved",
+          "description": "Padding for 8-byte alignment",
+          "lookup": "",
+          "type": "uint8",
+          "count": 4,
+          "format": ""
         }
       ],
       "type": "start",
@@ -935,7 +1144,16 @@
       "args_name": "no_args",
       "forced_id": false,
       "category_mask": 1,
-      "args": [],
+      "args": [
+        {
+          "name": "reserved",
+          "description": "Padding for 8-byte alignment",
+          "lookup": "",
+          "type": "uint8",
+          "count": 4,
+          "format": ""
+        }
+      ],
       "type": "done",
       "pair": 0
     },
@@ -1027,7 +1245,7 @@
         },
         {
           "name": "reserved",
-          "description": "Reserved for future use.",
+          "description": "Padding for 8-byte alignment",
           "lookup": "",
           "type": "uint8",
           "count": 3,
@@ -1083,6 +1301,14 @@
           "lookup": "",
           "type": "uint32",
           "count": 1,
+          "format": ""
+        },
+        {
+          "name": "reserved",
+          "description": "Padding for 8-byte alignment",
+          "lookup": "",
+          "type": "uint8",
+          "count": 4,
           "format": ""
         }
       ],
@@ -1166,6 +1392,14 @@
           "type": "uint32",
           "count": 1,
           "format": ""
+        },
+        {
+          "name": "reserved",
+          "description": "Padding for 8-byte alignment",
+          "lookup": "",
+          "type": "uint8",
+          "count": 4,
+          "format": ""
         }
       ],
       "type": "start",
@@ -1212,6 +1446,14 @@
           "type": "uint32",
           "count": 1,
           "format": ""
+        },
+        {
+          "name": "reserved",
+          "description": "Padding for 8-byte alignment",
+          "lookup": "",
+          "type": "uint8",
+          "count": 4,
+          "format": ""
         }
       ],
       "type": "done",
@@ -1241,6 +1483,14 @@
           "lookup": "",
           "type": "uint32",
           "count": 1,
+          "format": ""
+        },
+        {
+          "name": "reserved",
+          "description": "Padding for 8-byte alignment",
+          "lookup": "",
+          "type": "uint8",
+          "count": 4,
           "format": ""
         }
       ],
@@ -1277,7 +1527,16 @@
       "args_name": "no_args",
       "forced_id": false,
       "category_mask": 1,
-      "args": [],
+      "args": [
+        {
+          "name": "reserved",
+          "description": "Padding for 8-byte alignment",
+          "lookup": "",
+          "type": "uint8",
+          "count": 4,
+          "format": ""
+        }
+      ],
       "type": "done",
       "pair": 11
     },
@@ -1306,6 +1565,14 @@
           "type": "uint32",
           "count": 1,
           "format": ""
+        },
+        {
+          "name": "reserved",
+          "description": "Padding for 8-byte alignment",
+          "lookup": "",
+          "type": "uint8",
+          "count": 4,
+          "format": ""
         }
       ],
       "type": "start",
@@ -1320,7 +1587,16 @@
       "args_name": "no_args",
       "forced_id": false,
       "category_mask": 1,
-      "args": [],
+      "args": [
+        {
+          "name": "reserved",
+          "description": "Padding for 8-byte alignment",
+          "lookup": "",
+          "type": "uint8",
+          "count": 4,
+          "format": ""
+        }
+      ],
       "type": "done",
       "pair": 13
     },
@@ -1365,6 +1641,14 @@
           "type": "uint32",
           "count": 1,
           "format": ""
+        },
+        {
+          "name": "reserved",
+          "description": "Padding for 8-byte alignment",
+          "lookup": "",
+          "type": "uint8",
+          "count": 4,
+          "format": ""
         }
       ],
       "type": "start",
@@ -1379,7 +1663,16 @@
       "args_name": "no_args",
       "forced_id": false,
       "category_mask": 1,
-      "args": [],
+      "args": [
+        {
+          "name": "reserved",
+          "description": "Padding for 8-byte alignment",
+          "lookup": "",
+          "type": "uint8",
+          "count": 4,
+          "format": ""
+        }
+      ],
       "type": "done",
       "pair": 15
     },
@@ -1446,7 +1739,16 @@
       "args_name": "no_args",
       "forced_id": false,
       "category_mask": 1,
-      "args": [],
+      "args": [
+        {
+          "name": "reserved",
+          "description": "Padding for 8-byte alignment",
+          "lookup": "",
+          "type": "uint8",
+          "count": 4,
+          "format": ""
+        }
+      ],
       "type": "done",
       "pair": 17
     },
@@ -1519,10 +1821,10 @@
         },
         {
           "name": "reserved",
-          "description": "Reserved for alignment to 4-byte boundary.",
+          "description": "Padding for 8-byte alignment",
           "lookup": "",
           "type": "uint8",
-          "count": 1,
+          "count": 5,
           "format": ""
         }
       ],
@@ -1549,7 +1851,7 @@
         },
         {
           "name": "reserved",
-          "description": "Reserved for alignment to 4-byte boundary.",
+          "description": "Padding for 8-byte alignment",
           "lookup": "",
           "type": "uint8",
           "count": 3,
@@ -1567,7 +1869,16 @@
       "args_name": "no_args",
       "forced_id": false,
       "category_mask": 1,
-      "args": [],
+      "args": [
+        {
+          "name": "reserved",
+          "description": "Padding for 8-byte alignment",
+          "lookup": "",
+          "type": "uint8",
+          "count": 4,
+          "format": ""
+        }
+      ],
       "type": "done"
     },
     "22": {
@@ -1611,6 +1922,30 @@
           "lookup": "",
           "type": "uint8",
           "count": 1,
+          "format": ""
+        },
+        {
+          "name": "reserved1",
+          "description": "Reserved field.",
+          "lookup": "",
+          "type": "uint8",
+          "count": 1,
+          "format": ""
+        },
+        {
+          "name": "context_handle",
+          "description": "The handle associated to the context.",
+          "lookup": "",
+          "type": "uint64",
+          "count": 1,
+          "format": ""
+        },
+        {
+          "name": "reserved",
+          "description": "Padding for 8-byte alignment",
+          "lookup": "",
+          "type": "uint8",
+          "count": 4,
           "format": ""
         }
       ],
@@ -1658,19 +1993,44 @@
           "type": "uint8",
           "count": 1,
           "format": ""
+        },
+        {
+          "name": "reserved1",
+          "description": "Reserved field.",
+          "lookup": "",
+          "type": "uint8",
+          "count": 1,
+          "format": ""
+        },
+        {
+          "name": "context_handle",
+          "description": "The handle associated to the context.",
+          "lookup": "",
+          "type": "uint64",
+          "count": 1,
+          "format": ""
+        },
+        {
+          "name": "reserved",
+          "description": "Padding for 8-byte alignment",
+          "lookup": "",
+          "type": "uint8",
+          "count": 4,
+          "format": ""
         }
       ],
       "type": null
     },
     "24": {
-      "name": "context_start_running",
+      "name": "context_running",
       "description": "Context was selected to run.",
       "categories": [
-        "EVENT_TRACE_CATEGORY_HWS"
+        "EVENT_TRACE_CATEGORY_HWS",
+        "EVENT_TRACE_CATEGORY_GPU_VIEW"
       ],
       "args_name": "context_event",
       "forced_id": false,
-      "category_mask": 4,
+      "category_mask": 2052,
       "args": [
         {
           "name": "context_id",
@@ -1679,11 +2039,49 @@
           "type": "uint32",
           "count": 1,
           "format": ""
+        },
+        {
+          "name": "context_handle",
+          "description": "The handle associated to the context.",
+          "lookup": "",
+          "type": "uint64",
+          "count": 1,
+          "format": ""
         }
       ],
       "type": null
     },
     "25": {
+      "name": "context_ready",
+      "description": "Context has pending work to do, but has not been scheduled to run yet.",
+      "categories": [
+        "EVENT_TRACE_CATEGORY_HWS",
+        "EVENT_TRACE_CATEGORY_GPU_VIEW"
+      ],
+      "args_name": "context_event",
+      "forced_id": false,
+      "category_mask": 2052,
+      "args": [
+        {
+          "name": "context_id",
+          "description": "The context ID associated with the event.",
+          "lookup": "",
+          "type": "uint32",
+          "count": 1,
+          "format": ""
+        },
+        {
+          "name": "context_handle",
+          "description": "The handle associated to the context.",
+          "lookup": "",
+          "type": "uint64",
+          "count": 1,
+          "format": ""
+        }
+      ],
+      "type": null
+    },
+    "26": {
       "name": "context_deleted",
       "description": "Context deleted event.",
       "categories": [
@@ -1700,11 +2098,19 @@
           "type": "uint32",
           "count": 1,
           "format": ""
+        },
+        {
+          "name": "context_handle",
+          "description": "The handle associated to the context.",
+          "lookup": "",
+          "type": "uint64",
+          "count": 1,
+          "format": ""
         }
       ],
       "type": null
     },
-    "26": {
+    "27": {
       "name": "doorbell_interrupt",
       "description": "Doorbell interrupt triggered.",
       "categories": [
@@ -1721,11 +2127,48 @@
           "type": "uint32",
           "count": 1,
           "format": ""
+        },
+        {
+          "name": "context_handle",
+          "description": "Handle of the context associated to the doorbell",
+          "lookup": "",
+          "type": "uint64",
+          "count": 1,
+          "format": ""
         }
       ],
       "type": null
     },
-    "27": {
+    "28": {
+      "name": "doorbell_interrupt_processed",
+      "description": "Doorbell interrupt processed.",
+      "categories": [
+        "EVENT_TRACE_CATEGORY_HWS"
+      ],
+      "args_name": "doorbell_interrupt",
+      "forced_id": false,
+      "category_mask": 4,
+      "args": [
+        {
+          "name": "doorbell_id",
+          "description": "Doorbell index",
+          "lookup": "",
+          "type": "uint32",
+          "count": 1,
+          "format": ""
+        },
+        {
+          "name": "context_handle",
+          "description": "Handle of the context associated to the doorbell",
+          "lookup": "",
+          "type": "uint64",
+          "count": 1,
+          "format": ""
+        }
+      ],
+      "type": null
+    },
+    "29": {
       "name": "partition_creation",
       "description": "Partition creation event.",
       "categories": [
@@ -1766,11 +2209,19 @@
           "type": "uint32",
           "count": 1,
           "format": ""
+        },
+        {
+          "name": "reserved",
+          "description": "Padding for 8-byte alignment",
+          "lookup": "",
+          "type": "uint8",
+          "count": 4,
+          "format": ""
         }
       ],
       "type": null
     },
-    "28": {
+    "30": {
       "name": "partition_clear_context",
       "description": "Partition clear context event.",
       "categories": [
@@ -1807,7 +2258,7 @@
       ],
       "type": null
     },
-    "29": {
+    "31": {
       "name": "partition_teardown",
       "description": "Partition teardown event.",
       "categories": [
@@ -1844,7 +2295,7 @@
       ],
       "type": null
     },
-    "30": {
+    "32": {
       "name": "preempt_timeout_expired",
       "description": "Preemption timer for context expired",
       "categories": [
@@ -1861,11 +2312,19 @@
           "type": "uint32",
           "count": 1,
           "format": ""
+        },
+        {
+          "name": "context_handle",
+          "description": "The handle associated to the context.",
+          "lookup": "",
+          "type": "uint64",
+          "count": 1,
+          "format": ""
         }
       ],
       "type": null
     },
-    "31": {
+    "33": {
       "name": "process_idle_to_runnable",
       "description": "Process transitioned from idle to runnable state.",
       "categories": [
@@ -1894,16 +2353,16 @@
         },
         {
           "name": "reserved",
-          "description": "",
+          "description": "Padding for 8-byte alignment",
           "lookup": "",
           "type": "uint8",
-          "count": 3,
+          "count": 7,
           "format": ""
         }
       ],
       "type": null
     },
-    "32": {
+    "34": {
       "name": "process_runnable_to_idle",
       "description": "Process transitioned from runnable to idle state.",
       "categories": [
@@ -1932,16 +2391,16 @@
         },
         {
           "name": "reserved",
-          "description": "",
+          "description": "Padding for 8-byte alignment",
           "lookup": "",
           "type": "uint8",
-          "count": 3,
+          "count": 7,
           "format": ""
         }
       ],
       "type": null
     },
-    "33": {
+    "35": {
       "name": "request_preemption",
       "description": "Preemption was requested for context",
       "categories": [
@@ -1958,11 +2417,19 @@
           "type": "uint32",
           "count": 1,
           "format": ""
+        },
+        {
+          "name": "context_handle",
+          "description": "The handle associated to the context.",
+          "lookup": "",
+          "type": "uint64",
+          "count": 1,
+          "format": ""
         }
       ],
       "type": null
     },
-    "34": {
+    "36": {
       "name": "time_quantum_ctx_expired",
       "description": "TQ timer for context expired",
       "categories": [
@@ -1979,11 +2446,19 @@
           "type": "uint32",
           "count": 1,
           "format": ""
+        },
+        {
+          "name": "context_handle",
+          "description": "The handle associated to the context.",
+          "lookup": "",
+          "type": "uint64",
+          "count": 1,
+          "format": ""
         }
       ],
       "type": null
     },
-    "35": {
+    "37": {
       "name": "time_quantum_process_expired",
       "description": "TQ timer for process expired",
       "categories": [
@@ -2012,16 +2487,16 @@
         },
         {
           "name": "reserved",
-          "description": "",
+          "description": "Padding for 8-byte alignment",
           "lookup": "",
           "type": "uint8",
-          "count": 3,
+          "count": 7,
           "format": ""
         }
       ],
       "type": null
     },
-    "36": {
+    "38": {
       "name": "unhandled_timer",
       "description": "Unknown timer expired",
       "categories": [
@@ -2043,44 +2518,37 @@
       ],
       "type": null
     },
-    "37": {
-      "name": "ctx_idle",
-      "description": "Context went idle - indicates if preempted or work completed",
+    "39": {
+      "name": "context_idle",
+      "description": "Context has no pending commands and went idle.",
       "categories": [
-        "EVENT_TRACE_CATEGORY_HWS"
+        "EVENT_TRACE_CATEGORY_HWS",
+        "EVENT_TRACE_CATEGORY_GPU_VIEW"
       ],
-      "args_name": "ctx_idle",
+      "args_name": "context_event",
       "forced_id": false,
-      "category_mask": 4,
+      "category_mask": 2052,
       "args": [
         {
           "name": "context_id",
-          "description": "The context ID that went idle.",
+          "description": "The context ID associated with the event.",
           "lookup": "",
           "type": "uint32",
           "count": 1,
           "format": ""
         },
         {
-          "name": "has_remaining_work",
-          "description": "1 if context was preempted and has remaining work, 0 if work completed normally.",
+          "name": "context_handle",
+          "description": "The handle associated to the context.",
           "lookup": "",
-          "type": "uint8",
+          "type": "uint64",
           "count": 1,
-          "format": ""
-        },
-        {
-          "name": "reserved",
-          "description": "",
-          "lookup": "",
-          "type": "uint8",
-          "count": 3,
           "format": ""
         }
       ],
       "type": null
     },
-    "38": {
+    "40": {
       "name": "ctx_add",
       "description": "Context added with correct PASID correlation",
       "categories": [
@@ -2117,7 +2585,7 @@
       ],
       "type": null
     },
-    "39": {
+    "41": {
       "name": "aie4_pwr",
       "description": "AIE4 power-up event.",
       "categories": [
@@ -2138,7 +2606,7 @@
       ],
       "type": null
     },
-    "40": {
+    "42": {
       "name": "common_ono_pwr",
       "description": "ONO power-up event.",
       "categories": [
@@ -2159,7 +2627,7 @@
       ],
       "type": null
     },
-    "41": {
+    "43": {
       "name": "ipu_aieclk_status",
       "description": "IPU AIE changed to active, stop, or it is allowed to go into deep sleep.",
       "categories": [
@@ -2180,7 +2648,7 @@
       ],
       "type": null
     },
-    "42": {
+    "44": {
       "name": "ipu_hclk_status",
       "description": "IPU HCLK changed to active or is allowed to go into deep sleep.",
       "categories": [
@@ -2201,7 +2669,7 @@
       ],
       "type": null
     },
-    "43": {
+    "45": {
       "name": "l1mmu_pwr",
       "description": "L1MMU power-on event.",
       "categories": [
@@ -2222,7 +2690,7 @@
       ],
       "type": null
     },
-    "44": {
+    "46": {
       "name": "nbif_clk_status",
       "description": "IPU AIE changed to active, stop, or it is allowed to go into deep sleep.",
       "categories": [
@@ -2243,7 +2711,7 @@
       ],
       "type": null
     },
-    "45": {
+    "47": {
       "name": "pmfw_column_busy",
       "description": "PMFW column busy indicator was set.",
       "categories": [
@@ -2280,7 +2748,7 @@
         },
         {
           "name": "reserved",
-          "description": "",
+          "description": "Padding for 8-byte alignment",
           "lookup": "",
           "type": "uint8",
           "count": 3,
@@ -2289,7 +2757,7 @@
       ],
       "type": null
     },
-    "46": {
+    "48": {
       "name": "uc_critical_error",
       "description": "uC reported a critical error.",
       "categories": [
@@ -2332,11 +2800,35 @@
           "type": "uint8",
           "count": 1,
           "format": ""
+        },
+        {
+          "name": "reserved1",
+          "description": "Reserved field.",
+          "lookup": "",
+          "type": "uint8",
+          "count": 1,
+          "format": ""
+        },
+        {
+          "name": "context_handle",
+          "description": "The handle associated to the context.",
+          "lookup": "",
+          "type": "uint64",
+          "count": 1,
+          "format": ""
+        },
+        {
+          "name": "reserved",
+          "description": "Padding for 8-byte alignment",
+          "lookup": "",
+          "type": "uint8",
+          "count": 4,
+          "format": ""
         }
       ],
       "type": null
     },
-    "47": {
+    "49": {
       "name": "npi_interrupt",
       "description": "NPI interrupt event.",
       "categories": [
@@ -2357,7 +2849,7 @@
       ],
       "type": null
     },
-    "48": {
+    "50": {
       "name": "ctx_error",
       "description": "There was an error with the hw context.",
       "categories": [
@@ -2374,11 +2866,19 @@
           "type": "uint32",
           "count": 1,
           "format": ""
+        },
+        {
+          "name": "context_handle",
+          "description": "The handle associated to the context.",
+          "lookup": "",
+          "type": "uint64",
+          "count": 1,
+          "format": ""
         }
       ],
       "type": null
     },
-    "49": {
+    "51": {
       "name": "pmfw_msg_fail",
       "description": "Failed to send a message to PMFW.",
       "categories": [
@@ -2404,11 +2904,19 @@
           "type": "int32",
           "count": 1,
           "format": ""
+        },
+        {
+          "name": "reserved",
+          "description": "Padding for 8-byte alignment",
+          "lookup": "",
+          "type": "uint8",
+          "count": 4,
+          "format": ""
         }
       ],
       "type": null
     },
-    "50": {
+    "52": {
       "name": "dpm_set_state",
       "description": "DPM state (active/inactive) was changed for a specific DPM ID.",
       "categories": [
@@ -2436,7 +2944,7 @@
         },
         {
           "name": "reserved",
-          "description": "",
+          "description": "Padding for 8-byte alignment",
           "lookup": "",
           "type": "uint8",
           "count": 1,
@@ -2445,7 +2953,7 @@
       ],
       "type": null
     },
-    "51": {
+    "53": {
       "name": "pmfw_get_aieclk",
       "description": "Request aieclk frequency to pmfw given a DPM level.",
       "categories": [
@@ -2482,7 +2990,7 @@
       ],
       "type": null
     },
-    "52": {
+    "54": {
       "name": "pmfw_get_npuhclk",
       "description": "Request npuhclk frequency to pmfw given a DPM level.",
       "categories": [
@@ -2519,7 +3027,7 @@
       ],
       "type": null
     },
-    "53": {
+    "55": {
       "name": "pmfw_set_aieclk",
       "description": "Set aie clk DPM level.",
       "categories": [
@@ -2544,11 +3052,19 @@
           "type": "int32",
           "count": 1,
           "format": ""
+        },
+        {
+          "name": "reserved",
+          "description": "Padding for 8-byte alignment",
+          "lookup": "",
+          "type": "uint8",
+          "count": 4,
+          "format": ""
         }
       ],
       "type": null
     },
-    "54": {
+    "56": {
       "name": "pmfw_set_npuhclk",
       "description": "Set aie clk DPM level.",
       "categories": [
@@ -2573,11 +3089,130 @@
           "type": "int32",
           "count": 1,
           "format": ""
+        },
+        {
+          "name": "reserved",
+          "description": "Padding for 8-byte alignment",
+          "lookup": "",
+          "type": "uint8",
+          "count": 4,
+          "format": ""
         }
       ],
       "type": null
     },
-    "55": {
+    "57": {
+      "name": "dpm_algo_process_busy_calculated",
+      "description": "System busyness percentage calculated by DPM algorithm.",
+      "categories": [
+        "EVENT_TRACE_CATEGORY_DPM_ALGO"
+      ],
+      "args_name": "dpm_algo_process_busy_calculated",
+      "forced_id": false,
+      "category_mask": 512,
+      "args": [
+        {
+          "name": "busy_percentage",
+          "description": "System busyness percentage (0-100).",
+          "lookup": "",
+          "type": "uint32",
+          "count": 1,
+          "format": ""
+        }
+      ],
+      "type": null
+    },
+    "58": {
+      "name": "dpm_algo_process_dpm_levels_calculated",
+      "description": "DPM levels calculated when activity-based DPM modifier changes.",
+      "categories": [
+        "EVENT_TRACE_CATEGORY_DPM_ALGO"
+      ],
+      "args_name": "dpm_algo_process_dpm_levels_calculated",
+      "forced_id": false,
+      "category_mask": 512,
+      "args": [
+        {
+          "name": "comp_dpm_level",
+          "description": "Computed DPM level for compute.",
+          "lookup": "",
+          "type": "int8",
+          "count": 1,
+          "format": ""
+        },
+        {
+          "name": "band_dpm_level",
+          "description": "Computed DPM level for bandwidth.",
+          "lookup": "",
+          "type": "int8",
+          "count": 1,
+          "format": ""
+        },
+        {
+          "name": "reserved",
+          "description": "Padding for 8-byte alignment",
+          "lookup": "",
+          "type": "uint8",
+          "count": 2,
+          "format": ""
+        }
+      ],
+      "type": null
+    },
+    "59": {
+      "name": "dpm_algo_qos_update",
+      "description": "QoS DPM level recalculation with frequencies and computed levels.",
+      "categories": [
+        "EVENT_TRACE_CATEGORY_DPM_ALGO"
+      ],
+      "args_name": "dpm_algo_qos_update",
+      "forced_id": false,
+      "category_mask": 512,
+      "args": [
+        {
+          "name": "min_compute_freq_mhz",
+          "description": "Minimum compute frequency in MHz from QoS.",
+          "lookup": "",
+          "type": "uint32",
+          "count": 1,
+          "format": ""
+        },
+        {
+          "name": "min_bandwidth_freq_mhz",
+          "description": "Minimum bandwidth frequency in MHz from QoS.",
+          "lookup": "",
+          "type": "uint32",
+          "count": 1,
+          "format": ""
+        },
+        {
+          "name": "comp_dpm_level",
+          "description": "Computed DPM level for compute.",
+          "lookup": "",
+          "type": "int8",
+          "count": 1,
+          "format": ""
+        },
+        {
+          "name": "band_dpm_level",
+          "description": "Computed DPM level for bandwidth.",
+          "lookup": "",
+          "type": "int8",
+          "count": 1,
+          "format": ""
+        },
+        {
+          "name": "reserved",
+          "description": "Padding for 8-byte alignment",
+          "lookup": "",
+          "type": "uint8",
+          "count": 2,
+          "format": ""
+        }
+      ],
+      "type": null
+    },
+    "60": {
       "name": "pmfw_can_enter_z8",
       "description": "Indicate to PMFW whether Z8 can be entered or not.",
       "categories": [
@@ -2598,7 +3233,7 @@
       ],
       "type": null
     },
-    "56": {
+    "61": {
       "name": "sriov_pf_bdf",
       "description": "SR-IOV PF BDF information.",
       "categories": [
@@ -2606,7 +3241,7 @@
       ],
       "args_name": "sriov_bdf",
       "forced_id": false,
-      "category_mask": 512,
+      "category_mask": 1024,
       "args": [
         {
           "name": "pf_bus",
@@ -2634,16 +3269,16 @@
         },
         {
           "name": "reserved",
-          "description": "",
+          "description": "Padding for 8-byte alignment",
           "lookup": "",
-          "type": "uint16",
-          "count": 1,
+          "type": "uint8",
+          "count": 6,
           "format": ""
         }
       ],
       "type": null
     },
-    "57": {
+    "62": {
       "name": "sriov_vf_routing",
       "description": "SR-IOV VF routing information.",
       "categories": [
@@ -2651,7 +3286,7 @@
       ],
       "args_name": "sriov_vf_routing",
       "forced_id": false,
-      "category_mask": 512,
+      "category_mask": 1024,
       "args": [
         {
           "name": "first_vf_offset",
@@ -2667,6 +3302,14 @@
           "lookup": "",
           "type": "uint32",
           "count": 1,
+          "format": ""
+        },
+        {
+          "name": "reserved",
+          "description": "Padding for 8-byte alignment",
+          "lookup": "",
+          "type": "uint8",
+          "count": 4,
           "format": ""
         }
       ],

@@ -1,6 +1,12 @@
 {
   "version": "1.0",
-
+  "bindings": [
+    { "name": "arg0", "size": 20 },
+    { "name": "arg1", "size": 20 },
+    { "name": "arg2", "size": 20 },
+    { "name": "arg3", "size": 20 },
+    { "name": "arg4", "size": 20 }
+  ],
   "execution" : {
     "iterations": 10000,
     "verbose": false

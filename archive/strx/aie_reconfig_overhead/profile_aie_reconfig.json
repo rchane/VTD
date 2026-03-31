@@ -1,5 +1,10 @@
 {
   "version": "1.0",
+  "bindings": [
+    { "name": "bo_ifm", "size": 134217728 },
+    { "name": "bo_ofm", "size": 134217728 },
+    { "name": "bo_inter", "size": 1048576 }
+  ],
   "execution" : {
     "iterations": 1000,
     "verbose": false

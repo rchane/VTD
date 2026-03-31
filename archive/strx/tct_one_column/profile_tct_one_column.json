@@ -1,6 +1,9 @@
 {
   "version": "1.0",
-
+  "bindings": [
+    { "name": "ifm", "size": 4 },
+    { "name": "ofm", "size": 16 }
+  ],
   "execution" : {
     "iterations": 500,
     "verbose": false

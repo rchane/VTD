@@ -1,6 +1,9 @@
 {
   "version": "1.0",
-
+  "bindings": [
+    { "name": "arg0", "size": 262144 },
+    { "name": "arg2", "size": 262144 }
+  ],
   "execution" : {
     "iterations": 1000,
     "verbose": false

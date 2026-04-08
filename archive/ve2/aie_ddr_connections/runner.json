@@ -1,0 +1,52 @@
+{
+  "jobs": {
+    "start_0": {
+      "id": "col_0",
+      "recipe": "recipe_latency.json",
+      "profile": "profile_start0.json",
+      "dir": "."
+    },
+    "start_4": {
+      "id": "col_4",
+      "recipe": "recipe_latency.json",
+      "profile": "profile_start4.json",
+      "dir": "."
+    },
+    "start_8": {
+      "id": "col_8",
+      "recipe": "recipe_latency.json",
+      "profile": "profile_start8.json",
+      "dir": "."
+    },
+    "start_12": {
+      "id": "col_12",
+      "recipe": "recipe_latency.json",
+      "profile": "profile_start12.json",
+      "dir": "."
+    },
+    "start_16": {
+      "id": "col_16",
+      "recipe": "recipe_latency.json",
+      "profile": "profile_start16.json",
+      "dir": "."
+    },
+    "start_20": {
+      "id": "col_20",
+      "recipe": "recipe_latency.json",
+      "profile": "profile_start20.json",
+      "dir": "."
+    },
+    "start_24": {
+      "id": "col_24",
+      "recipe": "recipe_latency.json",
+      "profile": "profile_start24.json",
+      "dir": "."
+    },
+    "start_32": {
+      "id": "col_32",
+      "recipe": "recipe_latency.json",
+      "profile": "profile_start32.json",
+      "dir": "."
+    }
+  }
+}

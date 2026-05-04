@@ -1,0 +1,52 @@
+{
+  "jobs": [
+    {
+      "id": "ddr_start0",
+      "recipe": "recipe_flat.json",
+      "profile": "profile_start0.json",
+      "dir": "."
+    },
+    {
+      "id": "ddr_start4",
+      "recipe": "recipe_flat.json",
+      "profile": "profile_start4.json",
+      "dir": "."
+    },
+    {
+      "id": "ddr_start8",
+      "recipe": "recipe_flat.json",
+      "profile": "profile_start8.json",
+      "dir": "."
+    },
+    {
+      "id": "ddr_start12",
+      "recipe": "recipe_flat.json",
+      "profile": "profile_start12.json",
+      "dir": "."
+    },
+    {
+      "id": "ddr_start16",
+      "recipe": "recipe_flat.json",
+      "profile": "profile_start16.json",
+      "dir": "."
+    },
+    {
+      "id": "ddr_start20",
+      "recipe": "recipe_flat.json",
+      "profile": "profile_start20.json",
+      "dir": "."
+    },
+    {
+      "id": "ddr_start24",
+      "recipe": "recipe_flat.json",
+      "profile": "profile_start24.json",
+      "dir": "."
+    },
+    {
+      "id": "ddr_start32",
+      "recipe": "recipe_flat.json",
+      "profile": "profile_start32.json",
+      "dir": "."
+    }
+  ]
+}

@@ -1,0 +1,28 @@
+{
+  "version": "1.0",
+  "qos": {
+    "start_col": 32
+  },
+  "bindings": [
+    {
+      "name": "in_ddr",
+      "size": 262144,
+      "init": {
+        "file": "input_tensor.bin"
+      }
+    },
+    {
+      "name": "out_ddr",
+      "size": 262144,
+      "validate": {
+        "file": "golden_tensor.bin"
+      }
+    }
+  ],
+  "execution": {
+    "iterations": 1,
+    "verbose": true,
+    "validate": true,
+    "mode": "validate"
+  }
+}

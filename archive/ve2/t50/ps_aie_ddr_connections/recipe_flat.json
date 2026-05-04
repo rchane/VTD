@@ -1,0 +1,37 @@
+{
+  "version": "1.0",
+  "header": {
+    "programs": ["ctrl.elf"]
+  },
+  "resources": {
+    "buffers": [
+      {
+        "name": "in_ddr",
+        "type": "input",
+        "size": 262144
+      },
+      {
+        "name": "out_ddr",
+        "type": "output",
+        "size": 262144
+      }
+    ],
+    "kernels": [
+      {
+        "name": "k1",
+        "instance": "DPU"
+      }
+    ]
+  },
+  "execution": {
+    "runs": [
+      {
+        "name": "k1",
+        "arguments": [
+          { "name": "in_ddr", "argidx": 0 },
+          { "name": "out_ddr", "argidx": 1 }
+        ]
+      }
+    ]
+  }
+}

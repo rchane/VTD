@@ -1,0 +1,28 @@
+{
+  "version": "1.0",
+  "qos": {
+    "start_col": 32
+  },
+  "bindings": [
+    {
+      "name": "in_ddr",
+      "size": 524288,
+      "init": {
+        "file": "input.bin"
+      }
+    },
+    {
+      "name": "out_ddr",
+      "size": 524288,
+      "validate": {
+        "name": "in_ddr"
+      }
+    }
+  ],
+  "execution": {
+    "iterations": 1,
+    "verbose": true,
+    "validate": true,
+    "mode": "validate"
+  }
+}

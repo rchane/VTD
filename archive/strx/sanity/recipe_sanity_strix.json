@@ -1,0 +1,61 @@
+{
+  "version": "1.0",
+  "header": {
+    "xclbin": "design_sanity_strix.xclbin"
+  },
+  "resources": {
+    "buffers": [
+      {
+        "name": "coalesed_weights",
+        "size": 53591040,
+        "type": "weight"
+      },
+      {
+        "name": "compute_graph.ifm_ddr",
+        "size": 401408,
+        "type": "input"
+      },
+      {
+        "name": "coalesed_spills",
+        "size": 33958912,
+        "type": "spill"
+      },
+      {
+        "name": "runtime_control_packet",
+        "size": 1896340,
+        "type": "unknown"
+      },
+      {
+        "name": "compute_graph.ofm_ddr",
+        "size": 2048,
+        "type": "output"
+      }
+    ],
+    "kernels": [
+      {
+        "name": "DPU",
+        "ctrlcode": "ctrl_sanity_strix.elf",
+        "numargs": 12
+      }
+    ]
+  },
+  "execution": {
+    "runs": [
+      {
+        "name": "DPU",
+        "arguments": [
+          { "name": "coalesed_weights", "argidx": 3 },
+          { "name": "compute_graph.ifm_ddr", "argidx": 4 },
+          { "name": "coalesed_spills", "argidx": 5 },
+          { "name": "compute_graph.ofm_ddr", "argidx": 7 }
+        ],
+        "constants": [
+          { "value": 3, "type": "int", "argidx": 0 },
+          { "value": 0, "type": "int", "argidx": 1 },
+          { "value": 0, "type": "int", "argidx": 2 },
+          { "value": 0, "type": "int", "argidx": 6 }
+        ]
+      }
+    ]
+  }
+}

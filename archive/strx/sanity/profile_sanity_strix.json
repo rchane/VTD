@@ -1,0 +1,47 @@
+{
+  "version": "1.0",
+  "bindings": [
+    {
+      "name": "coalesed_weights",
+      "size": 53591040,
+      "init": {
+        "file": "wts32_hw_sanity_strix.bin",
+        "mmap": true,
+        "skip": 8
+      }
+    },
+    {
+      "name": "compute_graph.ifm_ddr",
+      "size": 401408,
+      "init": {
+        "file": "ifm_hw_sanity_strix.bin",
+        "skip": 8
+      }
+    },
+    {
+      "name": "compute_graph.ofm_ddr",
+      "size": 2048,
+      "init": {
+        "stride": 1,
+        "value": 0
+      },
+      "validate": {
+        "file": "ofm_hw_sanity_strix.bin",
+        "skip": 8
+      }
+    }
+  ],
+  "executions": [
+    {
+      "mode": "validate",
+      "iterations": 16,
+      "verbose": false,
+      "iteration": {
+        "bind": false,
+        "init": false,
+        "wait": true,
+        "validate": true
+      }
+    }
+  ]
+}

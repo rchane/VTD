@@ -1,0 +1,50 @@
+{
+  "version": "1.0",
+  "bindings": [
+    {
+      "name": "ifm",
+      "size": 233472,
+      "init": {
+        "file": "ifm_sanity_npu3.bin",
+        "skip": 8
+      }
+    },
+    {
+      "name": "wts",
+      "size": 25626496,
+      "init": {
+        "file": "wts_sanity_npu3.bin",
+        "mmap": true,
+        "skip": 8
+      }
+    },
+    {
+      "name": "ctrl_pkt",
+      "size": 65760,
+      "init": {
+        "file": "ctrl_pkt0_sanity_npu3.bin"
+      }
+    },
+    {
+      "name": "ofm",
+      "size": 3072,
+      "validate": {
+        "file": "ofm_sanity_npu3.bin",
+        "skip": 8
+      }
+    }
+  ],
+  "executions": [
+    {
+      "mode": "validate",
+      "iterations": 16,
+      "verbose": false,
+      "iteration": {
+        "bind": false,
+        "init": false,
+        "wait": true,
+        "validate": true
+      }
+    }
+  ]
+}

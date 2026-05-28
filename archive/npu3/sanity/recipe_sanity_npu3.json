@@ -1,0 +1,29 @@
+{
+  "version": "1.0",
+  "header": {
+    "program": "control_sanity_npu3.elf"
+  },
+  "resources": {
+    "buffers": [
+      { "name": "wts", "type": "weight" },
+      { "name": "ofm", "type": "output" },
+      { "name": "ifm", "type": "input" },
+      { "name": "ctrl_pkt", "type": "input", "size": 65760 }
+    ],
+    "kernels": [
+      { "name": "dpu", "instance": "DPU", "numargs": 3 }
+    ]
+  },
+  "execution": {
+    "runs": [
+      {
+        "name": "dpu",
+        "arguments": [
+          { "name": "wts", "argidx": 0 },
+          { "name": "ofm", "argidx": 1 },
+          { "name": "ifm", "argidx": 2 }
+        ]
+      }
+    ]
+  }
+}

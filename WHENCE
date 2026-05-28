@@ -15,6 +15,13 @@ File:
   archive/npu3/preemption_overhead/preemption_memtile_4x3.elf
   archive/npu3/preemption_overhead/preemption_noop_4x1.elf
   archive/npu3/preemption_overhead/preemption_noop_4x3.elf
+  archive/npu3/sanity/control_sanity_npu3.elf
+  archive/npu3/sanity/ctrl_pkt0_sanity_npu3.bin
+  archive/npu3/sanity/ifm_sanity_npu3.bin
+  archive/npu3/sanity/ofm_sanity_npu3.bin
+  archive/npu3/sanity/profile_sanity_npu3.json
+  archive/npu3/sanity/recipe_sanity_npu3.json
+  archive/npu3/sanity/wts_sanity_npu3.bin
   archive/npu3/tct_all_column/tct_4col.elf
   archive/npu3/tct_one_column/tct_1col.elf
   archive/npu3/xrt_smi_npu3.a
@@ -43,6 +50,13 @@ File:
   archive/strx/preemption_overhead/preemption_memtile_4x8.elf
   archive/strx/preemption_overhead/preemption_noop_4x4.elf
   archive/strx/preemption_overhead/preemption_noop_4x8.elf
+  archive/strx/sanity/ctrl_sanity_strix.elf
+  archive/strx/sanity/design_sanity_strix.xclbin
+  archive/strx/sanity/ifm_hw_sanity_strix.bin
+  archive/strx/sanity/ofm_hw_sanity_strix.bin
+  archive/strx/sanity/profile_sanity_strix.json
+  archive/strx/sanity/recipe_sanity_strix.json
+  archive/strx/sanity/wts32_hw_sanity_strix.bin
   archive/strx/tct_all_column/tct_4col.elf
   archive/strx/tct_all_column/tct_all_col.xclbin
   archive/strx/tct_one_column/tct_1col.elf

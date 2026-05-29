@@ -5,17 +5,17 @@
   },
   "bindings": [
     {
-      "name": "in_ddr",
-      "size": 524288,
+      "name": "g.read_ddr",
+      "size": 1048576,
       "init": {
         "file": "input.bin"
       }
     },
     {
-      "name": "out_ddr",
-      "size": 524288,
+      "name": "g.write_ddr",
+      "size": 1048576,
       "validate": {
-        "name": "in_ddr"
+        "name": "g.read_ddr"
       }
     }
   ],

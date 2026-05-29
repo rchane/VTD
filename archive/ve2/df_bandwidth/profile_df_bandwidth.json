@@ -1,27 +1,31 @@
 {
   "version": "1.0",
   "qos": {
-    "start_col": 12
+    "start_col": 0
   },
   "bindings": [
     {
       "name": "g.read_ddr",
-      "size": 1048576,
+      "size": 1073741824,
       "init": {
-        "file": "input.bin"
+        "stride": 4,
+        "value": 3735928559
       }
     },
     {
       "name": "g.write_ddr",
-      "size": 1048576,
+      "size": 1073741824,
       "validate": {
         "name": "g.read_ddr"
       }
     }
   ],
   "execution": {
-    "iterations": 1,
-    "verbose": true,
+    "iterations": 6,
+    "iteration": {
+      "init": false
+    },
+    "verbose": false,
     "validate": true,
     "mode": "validate"
   }

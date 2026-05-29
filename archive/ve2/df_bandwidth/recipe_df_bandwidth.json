@@ -2,7 +2,7 @@
   "version": "1.0",
   "header": {
     "programs": [
-      "ctrl.elf"
+      "df_bw.elf"
     ]
   },
   "resources": {
@@ -10,12 +10,12 @@
       {
         "name": "g.read_ddr",
         "type": "input",
-        "size": 1048576
+        "size": 1073741824
       },
       {
         "name": "g.write_ddr",
         "type": "output",
-        "size": 1048576
+        "size": 1073741824
       }
     ],
     "kernels": [

@@ -6,14 +6,15 @@
   "bindings": [
     {
       "name": "g.read_ddr",
-      "size": 1048576,
+      "size": 1073741824,
       "init": {
-        "file": "input.bin"
+        "stride": 4,
+        "value": 3735928559
       }
     },
     {
       "name": "g.write_ddr",
-      "size": 1048576,
+      "size": 1073741824,
       "validate": {
         "name": "g.read_ddr"
       }

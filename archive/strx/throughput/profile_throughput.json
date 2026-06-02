@@ -7,8 +7,12 @@
     { "name": "arg3", "size": 20 },
     { "name": "arg4", "size": 20 }
   ],
-  "execution" : {
-    "iterations": 2502,
-    "verbose": false
-  }
+  "executions": [
+    {
+      "iterations": 2502,
+      "mode": "throughput",
+      "depth": 8,
+      "verbose": false
+    }
+  ]
 }

@@ -1,8 +1,11 @@
 {
   "version": "1.0",
-
-  "execution" : {
-    "iterations": 2502,
-    "verbose": false
-  }
+  "executions": [
+    {
+      "iterations": 2502,
+      "mode": "throughput",
+      "depth": 4,
+      "verbose": false
+    }
+  ]
 }

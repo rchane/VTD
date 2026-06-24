@@ -4,7 +4,7 @@
     {
       "iterations": 10000,
       "mode": "throughput",
-      "depth": 8,
+      "depth": 32,
       "verbose": false
     }
   ]

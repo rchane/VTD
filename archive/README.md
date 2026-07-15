@@ -23,19 +23,22 @@ Use the provided Python script for automated archive creation:
 
 ### Basic Usage
 
-```bash
-# Create archives for all platforms
-python build_archives.py
+One or more platform folder names are **required**. Allowed values: `phx`, `strx`, `npu3`, `ve2`.
 
-# Create archive for specific platform
+```bash
+# Create archive for a single platform
 python build_archives.py strx
 
 # Create archives for multiple platforms
 python build_archives.py phx ve2 strx
 ```
 
+Running without folder arguments fails with a usage error. Unknown or path-traversal folder names (e.g. `../../other`) are refused; only the four platform directories under `archive/` are accepted.
+
 ### Script Features
 
+- **Required platform argument**: At least one of `phx`, `strx`, `npu3`, or `ve2` must be specified
+- **Path safety**: Resolves folders only under this `archive/` directory; rejects other paths
 - **Recursive file collection**: Automatically includes files from subdirectories
 - **Flattened structure**: Creates archives with all files at root level
 - **Smart updates**: Only updates files newer than existing archive
@@ -97,6 +100,7 @@ python build_archives.py --help
 
 ## Notes
 
+- Run `build_archives.py` from any working directory; it always targets platform subdirs under `archive/`
 - Archives are stored in their respective platform directories (e.g., `strx/xrt_smi_strx.a`)
 - All files are flattened to root level in archives (no directory structure preserved)
 - The Python script automatically excludes existing `.a` files to prevent circular inclusion

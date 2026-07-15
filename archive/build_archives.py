@@ -86,34 +86,37 @@ def create_archive(folder_path):
 def print_help():
     print("""Archive Builder - Create .a archives from folders
 
-USAGE: python build_archives.py [folders...]
-ARGUMENTS: folders - List of folder names (default: all folders in current directory)
+USAGE: python build_archives.py <folder> [folder...]
+ARGUMENTS: folder - One or more platform folder names (phx, strx, npu3, ve2)
 
 EXAMPLES:
-    python build_archives.py          # Create archives for all folders
-    python build_archives.py phx      # Create archive for specific folder
-    python build_archives.py phx ve2  # Create archives for multiple folders
+    python build_archives.py phx
+    python build_archives.py phx ve2 strx
 
-OUTPUT: Archives created as xrt_smi_<foldername>.a""")
+OUTPUT: Archives created as xrt_smi_<foldername>.a inside each platform folder""")
 
 def main():
     check_ar_utility()
     parser = argparse.ArgumentParser(add_help=False)
     parser.add_argument('-h', '--help', action='store_true')
-    parser.add_argument('folders', nargs='*', help='Folder names to create archives for')
+    parser.add_argument('folders', nargs='+', help='Platform folder names (phx, strx, npu3, ve2)')
     args = parser.parse_args()
     
     if args.help:
         print_help()
         return 0
     
-    current_dir = Path(".")
-    folder_names = args.folders or [d.name for d in current_dir.iterdir() if d.is_dir()]
-    if not args.folders:
-        print(f"No folders specified, processing all: {', '.join(folder_names)}")
-    
-    folders = [current_dir / name for name in folder_names if (current_dir / name).exists()]
-    [print(f"Warning: Folder {name} not found, skipping") for name in folder_names if not (current_dir / name).exists()]
+    ARCHIVE_ROOT = Path(__file__).resolve().parent
+    ALLOWED = {"phx", "strx", "npu3", "ve2"}
+    folder_names = args.folders
+
+    folders = []
+    for name in folder_names:
+        cand = (ARCHIVE_ROOT / name).resolve()
+        if name not in ALLOWED or not cand.is_relative_to(ARCHIVE_ROOT) or not cand.is_dir():
+            print(f"Warning: refusing folder '{name}' (not an allowed platform dir)")
+            continue
+        folders.append(cand)
     
     if not folders:
         print("No valid folders found")

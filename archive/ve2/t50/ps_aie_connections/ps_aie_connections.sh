@@ -2,21 +2,39 @@
 
 set -euo pipefail
 
-DEVMEM2=${DEVMEM2:-devmem2}
-EXPECT=${EXPECT:-0xDEADBEEF}
-ADDR_BASE=${ADDR_BASE:-0}
-COL_LAST=${COL_LAST:-36}
+# PS↔AIE column read/write check via devmem2.
+# VE2 column-memory base is fixed; MMIO targets are clamped to the AIE aperture.
+
+readonly DEVMEM2=devmem2
+readonly VE2_AIE_BASE=0x20000000000
+readonly VE2_AIE_SIZE=0x00080000000
+readonly ADDR_BASE=0x20000000000
+readonly EXPECT=0xDEADBEEF
+readonly COL_SHIFT=25
+readonly COL_OFFSET=$((1 << 20))
+readonly COL_LAST=36
 
 strip() { local z=${1#0x}; echo "${z#0X}"; }
+
+in_aie_window() {
+	local a=$1
+	((a >= VE2_AIE_BASE && a < VE2_AIE_BASE + VE2_AIE_SIZE))
+}
+
+assert_aie_window() {
+	local addr=$1 label=$2
+	in_aie_window "$addr" || {
+		printf 'error: refusing OOB MMIO %s @0x%X (outside VE2 AIE window [0x%X, 0x%X))\n' \
+			"$label" "$addr" "$VE2_AIE_BASE" $((VE2_AIE_BASE + VE2_AIE_SIZE)) >&2
+		exit 1
+	}
+}
+
 want=$(printf %08X $((16#$(strip "$EXPECT"))))
-base=$((16#$(strip "$ADDR_BASE")))
+base=$ADDR_BASE
 
 command -v "$DEVMEM2" >/dev/null 2>&1 || {
 	echo "error: $DEVMEM2 not found" >&2
-	exit 1
-}
-((COL_LAST <= 36)) || {
-	echo "error: COL_LAST must be 0..36" >&2
 	exit 1
 }
 
@@ -30,8 +48,10 @@ read_hex() {
 }
 
 for col in $(seq 0 "$COL_LAST"); do
-	a=$((base + (col << 25) + (1 << 20)))
+	a=$((base + (col << COL_SHIFT) + COL_OFFSET))
 	h=$(printf '0x%08X' "$a")
+
+	assert_aie_window "$a" "col=$col"
 
 	set +e
 	wo=$("$DEVMEM2" "$h" w "$EXPECT" 2>&1)

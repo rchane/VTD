@@ -2,14 +2,15 @@
 
 set -euo pipefail
 
-# This recipe installs under .../amdxdna/bins/t50/; other packages use the parent tree.
-AMDXDNA_BINS="${AMDXDNA_BINS:-/usr/share/amdxdna/bins/t50}"
-AMDXDNA_BINS_TOP="${AMDXDNA_BINS_TOP:-/usr/share/amdxdna/bins}"
-DEVICE="${DEVICE:-0}"
+# Helper paths are derived from this script's install location — never from the
+# environment. Do not add this launcher to sudoers without env_reset.
+readonly SELF_DIR="$(cd -- "$(dirname -- "$(readlink -f -- "$0")")" && pwd)"
+readonly AMDXDNA_BINS="$SELF_DIR"
+readonly AMDXDNA_BINS_TOP="$(cd -- "${SELF_DIR}/.." && pwd)"
+readonly PS_AIE_CONNECTIONS_SH="${AMDXDNA_BINS}/ps_aie_connections/ps_aie_connections.sh"
+readonly PS_AIE_CERT_WAKEUP_SH="${AMDXDNA_BINS}/ps_aie_cert_wakeup/ps_aie_cert_wakeup.sh"
 
-# This launcher lives in AMDXDNA_BINS; helper scripts each have a subdirectory there.
-PS_AIE_CONNECTIONS_SH="${PS_AIE_CONNECTIONS_SH:-${AMDXDNA_BINS}/ps_aie_connections/ps_aie_connections.sh}"
-PS_AIE_CERT_WAKEUP_SH="${PS_AIE_CERT_WAKEUP_SH:-${AMDXDNA_BINS}/ps_aie_cert_wakeup/ps_aie_cert_wakeup.sh}"
+DEVICE="${DEVICE:-0}"
 
 usage() {
 	cat <<EOF
@@ -26,12 +27,12 @@ Usage: ${0##*/} [all | N [N ...]]
   8                 ps_aie_cert_wakeup/ps_aie_cert_wakeup.sh (uC wakeup + handshake 0x0FFE per column)
   9                 xrt-runner shim_dma_bandwidth test (shim DMA BW)
 
+Paths (fixed relative to this script):
+  AMDXDNA_BINS=$AMDXDNA_BINS
+  AMDXDNA_BINS_TOP=$AMDXDNA_BINS_TOP
+
 Environment:
   DEVICE=$DEVICE (default 0)
-  AMDXDNA_BINS=$AMDXDNA_BINS (this recipe; default .../bins/t50)
-  AMDXDNA_BINS_TOP=$AMDXDNA_BINS_TOP (sibling packages e.g. aie_ddr_connections; default .../bins)
-  PS_AIE_CONNECTIONS_SH=$PS_AIE_CONNECTIONS_SH
-  PS_AIE_CERT_WAKEUP_SH=$PS_AIE_CERT_WAKEUP_SH
 EOF
 }
 

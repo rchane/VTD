@@ -10,7 +10,7 @@
       { "name": "arg2", "type": "input", "size": 20 }
     ],
     "kernels": [
-      { "name": "k1", "instance": "DPU", "ctrlcode": "nop.elf" }
+      { "name": "k1", "instance": "DPU", "ctrlcode": "aie_ddr_nop.elf" }
     ]
   },
   "execution": {

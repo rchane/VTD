@@ -2,7 +2,7 @@
   "version": "1.0",
   "header": {
     "programs": [
-      "ctrl.elf"
+      "shim_dma_ctrl.elf"
     ]
   },
   "resources": {

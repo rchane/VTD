@@ -1,7 +1,7 @@
 {
   "version": "1.0",
   "header": {
-    "programs": ["ctrl.elf"]
+    "programs": ["ps_aie_ddr_ctrl.elf"]
   },
   "resources": {
     "buffers": [

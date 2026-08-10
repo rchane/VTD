@@ -106,7 +106,7 @@ def collect_ve2_files(ve2_root, variant):
     if variant == "t50":
         add_tree(members, variant_dir, skip)
 
-    add_tree(members, elves, skip)
+    add_tree(members, elves)
     return list(members.values())
 
 

@@ -8,10 +8,18 @@
         "stride": 4,
         "value": 3735928559
       }
+    },
+    {
+      "name" : "ofm",
+      "size" : 1073741824,
+      "init" : {
+        "stride": 4,
+        "value": 0
+      }
     }
   ],
   "execution" : {
-    "iterations": 600,
+    "iterations": 10,
     "iteration" : {
       "init" : false 
     },

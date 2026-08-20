@@ -3,7 +3,7 @@
   "bindings" : [
     {
       "name" : "ifm",
-      "size" : 1073741824,
+      "size" : 1073479680,
       "init" : {
         "stride": 4,
         "value": 3735928559
@@ -11,15 +11,19 @@
     },
     {
       "name" : "ofm",
-      "size" : 1073741824,
+      "size" : 1073479680,
       "init" : {
         "stride": 4,
         "value": 0
+      },
+      "validate" : {
+        "name" : "ifm"
       }
     }
   ],
   "execution" : {
     "iterations": 100,
+    "validate": true,
     "iteration" : {
       "init" : false
     },

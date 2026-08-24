@@ -5,8 +5,8 @@
   },
   "resources": {
     "buffers": [
-      { "name": "ifm", "type": "input", "size": 1073741824 },
-      { "name": "ofm", "type": "input", "size": 1073741824 }
+      { "name": "ifm", "type": "input", "size": 1073479680 },
+      { "name": "ofm", "type": "input", "size": 1073479680 }
     ],
     "kernels": [
       { "name": "k1", "instance": "DPU"}
